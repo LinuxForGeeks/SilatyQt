@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>429</width>
+    <height>473</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <widget class="QWidget" name="mainLayout">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <layout class="QHBoxLayout" name="mL">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="sideBar" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #454545;</string>
+      </property>
+      <layout class="QGridLayout" name="sB">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>55</number>
+       </property>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="settingsButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent; border: 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/sidebar/Settings</normaloff>
+           <normalon>:/sidebar/SettingsS</normalon>:/sidebar/Settings</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="calendarButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent; border: 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/sidebar/Calendar</normaloff>
+           <normalon>:/sidebar/CalendarS</normalon>:/sidebar/Calendar</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="aboutButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent; border: 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/sidebar/About</normaloff>
+           <normalon>:/sidebar/AboutS</normalon>:/sidebar/About</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="compassButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent; border: 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/sidebar/Qibla</normaloff>
+           <normalon>:/sidebar/QiblaS</normalon>:/sidebar/Qibla</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="homeButton">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent; border: 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/sidebar/Home</normaloff>
+           <activeon>:/sidebar/HomeS</activeon>:/sidebar/Home</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <spacer name="sidebarRightSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>4</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
+        <spacer name="sidebarLeftSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>4</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="widgets">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="home">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <layout class="QGridLayout" name="homeLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>6</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="1" column="0" colspan="2">
+         <spacer name="hSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="hMaghribL">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%);
+border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0)</string>
+          </property>
+          <property name="text">
+           <string>   Maghrib</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="hDhuhrT">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%);
+border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>TextLabel   </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="hShurukT">
+          <property name="text">
+           <string>TextLabel    </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="hDhuhrL">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%);
+border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>   Dhuhr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="hIshaL">
+          <property name="text">
+           <string>    Isha</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="hMaghribT">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%);
+border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0)</string>
+          </property>
+          <property name="text">
+           <string>TextLabel   </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="hShurukL">
+          <property name="text">
+           <string>    Shuruk</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="hFajrT">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%);
+border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>TextLabel   </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="hAsrL">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="text">
+           <string>    Asr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="hFajrL">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 7.5%); border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>   Fajr</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLabel" name="hAsrT">
+          <property name="text">
+           <string>TextLabel    </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLabel" name="hIshaT">
+          <property name="text">
+           <string>TextLabel    </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="hDate">
+          <property name="text">
+           <string>Date</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="compass">
+       <layout class="QGridLayout" name="compLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="cTODO">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TODO&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Figure out how to code a compass&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="calendar">
+       <layout class="QGridLayout" name="calLayout">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item row="3" column="1">
+         <spacer name="cSpacerT">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="0">
+         <spacer name="cSpacerL">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>37</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="1">
+         <widget class="QCalendarWidget" name="cCalendar">
+          <property name="firstDayOfWeek">
+           <enum>Qt::Sunday</enum>
+          </property>
+          <property name="gridVisible">
+           <bool>true</bool>
+          </property>
+          <property name="horizontalHeaderFormat">
+           <enum>QCalendarWidget::SingleLetterDayNames</enum>
+          </property>
+          <property name="verticalHeaderFormat">
+           <enum>QCalendarWidget::NoVerticalHeader</enum>
+          </property>
+          <property name="navigationBarVisible">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <spacer name="cSpacerR">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>37</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QWidget" name="cWidget" native="true">
+          <layout class="QGridLayout" name="cW">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="cDate">
+             <property name="text">
+              <string>Day, DD MM YYYY</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QCheckBox" name="cHijri">
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="text">
+              <string>Hijri:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="settings">
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-72</y>
+             <width>356</width>
+             <height>553</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="sSystem">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>System</string>
+              </property>
+             </widget>
+            </item>
+            <item row="20" column="0">
+             <widget class="QLabel" name="sTZ">
+              <property name="text">
+               <string>   Time Zone:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0">
+             <widget class="QLabel" name="sMadhab">
+              <property name="text">
+               <string>   Madhab:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="sDST">
+              <property name="text">
+               <string>   Daylight Saving Time:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="sCF">
+              <property name="text">
+               <string>   Clock Format:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="sL">
+              <property name="text">
+               <string>   Language:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QComboBox" name="sLc">
+              <item>
+               <property name="text">
+                <string>English</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Arabic</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>French</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Spanish</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="14" column="2">
+             <widget class="QComboBox" name="sCMc">
+              <item>
+               <property name="text">
+                <string>Makkah</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Egypt</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Karachi</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>ISNA</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MWL</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="19" column="2">
+             <widget class="QDoubleSpinBox" name="sLongituded">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="decimals">
+               <number>6</number>
+              </property>
+              <property name="minimum">
+               <double>-99.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="18" column="2">
+             <widget class="QDoubleSpinBox" name="sLatituded">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="decimals">
+               <number>6</number>
+              </property>
+              <property name="minimum">
+               <double>-99.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="sAHC">
+              <property name="text">
+               <string>   Adjust Hijri Calendar:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="2">
+             <widget class="QComboBox" name="sFAc">
+              <item>
+               <property name="text">
+                <string>Nasir Al-Qatami Takbir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Muhammad Muhsen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Azzam Douik Takbir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mishary Al-Afasy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Azzam Douik</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="12" column="1">
+             <widget class="QToolButton" name="sNAt">
+              <property name="text">
+               <string>⏵</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="0">
+             <widget class="QLabel" name="sNA">
+              <property name="text">
+               <string>   Normal Adhan:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QSpinBox" name="sAHCs">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="sNotifications">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Notifications</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QLabel" name="sFA">
+              <property name="text">
+               <string>   Fajr Adhan:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="2">
+             <widget class="QCheckBox" name="sEANc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="sSM">
+              <property name="text">
+               <string>   Start Minimized:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="sTBN">
+              <property name="text">
+               <string>   Time before notification:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="2">
+             <widget class="QSpinBox" name="sTBNs">
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QCheckBox" name="sSMc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QComboBox" name="sCFc">
+              <item>
+               <property name="text">
+                <string>24h</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>12h</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="14" column="0">
+             <widget class="QLabel" name="sCM">
+              <property name="text">
+               <string>   Calculation Method:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="1">
+             <widget class="QToolButton" name="sFAt">
+              <property name="text">
+               <string>⏵</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="2">
+             <widget class="QComboBox" name="sMadhabc">
+              <item>
+               <property name="text">
+                <string>Default</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Hanafi</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="18" column="0">
+             <widget class="QLabel" name="sLatitude">
+              <property name="text">
+               <string>   Latitude:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="2">
+             <widget class="QCheckBox" name="sSTIc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="2">
+             <widget class="QComboBox" name="sNAc">
+              <item>
+               <property name="text">
+                <string>Yusuf Islam</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Essam Al-Khan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Nasir Al-Qatami Takbir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Nasir Al-Qatami</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Azzam Douik Takbir</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mishary Al-Afasy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Al-Minshawi</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Abdul Basit</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Abdur Ra'uf</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="20" column="2">
+             <widget class="QDoubleSpinBox" name="sTZd">
+              <property name="value">
+               <double>2.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
+             <widget class="QLabel" name="sEAN">
+              <property name="text">
+               <string>   Enable audio notifications:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QCheckBox" name="sDSTc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="19" column="0">
+             <widget class="QLabel" name="sLongitude">
+              <property name="text">
+               <string>   Longitude:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="0">
+             <widget class="QLabel" name="sJurisprudence">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Jurisprudence</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="sSTI">
+              <property name="text">
+               <string>   Show Time left with Icon:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="16" column="0">
+             <widget class="QLabel" name="sLocation">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Location</string>
+              </property>
+             </widget>
+            </item>
+            <item row="17" column="0">
+             <widget class="QLabel" name="sCity">
+              <property name="text">
+               <string>   City:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="17" column="2">
+             <widget class="QComboBox" name="sCc"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="about">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="2" column="0">
+         <widget class="QLabel" name="aVersion">
+          <property name="text">
+           <string>_._</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QTabWidget" name="aWidget">
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="aWc">
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <attribute name="title">
+            <string>Credits</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="1" column="0">
+             <spacer name="SpacerL">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="ArtworkBy">
+              <property name="text">
+               <string>Artwork by </string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <spacer name="SpacerR">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLabel" name="ArtworkCredits">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=abobakrsalafi@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mustapha Asbbar&lt;/span&gt;&lt;/a&gt; (Designer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="CreatedBy">
+              <property name="text">
+               <string>Created by </string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="CreateCredits">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=contact.axel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;AXeL-dev&lt;/span&gt;&lt;/a&gt; (Maintainer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=mustafakhalaf079@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mustafa Khalaf&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=www.jwb@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Jesse Wayde Brandão&lt;/span&gt;&lt;/a&gt; (Lead Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=m.alaa8@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mohamed Alaa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=CsEslam@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Eslam Mostafa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=xmonader@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Ahmed Youssef&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::RichText</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <spacer name="SpacerT">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>5</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="2">
+             <spacer name="SpacerB">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="aWl">
+           <property name="contextMenuPolicy">
+            <enum>Qt::DefaultContextMenu</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget { background-color: rgba(0,0,0,0) }
+QScrollBar { background-color: none }</string>
+           </property>
+           <attribute name="title">
+            <string>License</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QScrollArea" name="aSA">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="LicenseH">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>379</width>
+                 <height>440</height>
+                </rect>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="License">
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Silaty, A Prayer Times Reminder Application.&lt;/p&gt;&lt;p&gt;Copyright © 2023 Silaty Team&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is free software: you can redistribute it and/or modify&lt;/p&gt;&lt;p&gt;it under the terms of the GNU General Public License as published by&lt;/p&gt;&lt;p&gt;the Free Software Foundation, either version 3 of the License, or&lt;/p&gt;&lt;p&gt;(at your option) any later version.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is distributed in the hope that it will be useful,&lt;/p&gt;&lt;p&gt;but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/p&gt;&lt;p&gt;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&lt;/p&gt;&lt;p&gt;GNU General Public License for more details.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;You should have received a copy of the GNU General Public License&lt;/p&gt;&lt;p&gt;along with this program. If not, see &amp;lt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&amp;gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="aGPP">
+          <property name="text">
+           <string>GitHub Project Page</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="aSilaty">
+          <property name="font">
+           <font>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Silaty</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="aSilatyIcon">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/silaty_icon_48&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="aDesc">
+          <property name="text">
+           <string>A neat Prayer Time Reminder App.
+ Simple and complete so no prayer is missed</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="aCST">
+          <property name="text">
+           <string>Copyright © 2023 Silaty Team</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/sidebar">
+        <file alias="About">images/SideBar/About.svg</file>
+        <file alias="AboutS">images/SideBar/AboutSelected.svg</file>
+        <file alias="Calendar">images/SideBar/Calendar.svg</file>
+        <file alias="CalendarS">images/SideBar/CalendarSelected.svg</file>
+        <file alias="Home">images/SideBar/Home.svg</file>
+        <file alias="HomeS">images/SideBar/HomeSelected.svg</file>
+        <file alias="Qibla">images/SideBar/Qibla.svg</file>
+        <file alias="QiblaS">images/SideBar/QiblaSelected.svg</file>
+        <file alias="Settings">images/SideBar/Settings.svg</file>
+        <file alias="SettingsS">images/SideBar/SettingsSelected.svg</file>
+    </qresource>
+    <qresource prefix="/lang">
+        <file alias="ar_FR">langs/ar.json</file>
+        <file alias="en_US">langs/en.json</file>
+        <file alias="es_ES">langs/es.json</file>
+        <file alias="fr_FR">langs/fr.json</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="silaty_icon">images/Icons/silaty.svg</file>
+        <file alias="silaty_tray">images/Icons/TrayIcon.svg</file>
+        <file alias="Quit">images/Icons/Quit.png</file>
+        <file alias="silaty_icon_48">images/Icons/silaty_48.svg</file>
+    </qresource>
+    <qresource prefix="/data">
+        <file alias="Locations">data/Locations.xml</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file alias="Fajr_Azzam_Douik_Takbir">audio/Fajr/Azzam Douik Takbir.ogg</file>
+        <file alias="Fajr_Azzam_Douik">audio/Fajr/Azzam Douik.ogg</file>
+        <file alias="Fajr_Mishary_Al-Afasy">audio/Fajr/Mishary Al-Afasy.ogg</file>
+        <file alias="Fajr_Muhammad_Muhsen">audio/Fajr/Muhammad Muhsen.ogg</file>
+        <file alias="Fajr_Nasir_Al-Qatami_Takbir">audio/Fajr/Nasir Al-Qatami Takbir.ogg</file>
+        <file alias="Normal_Abdul_Basit">audio/Normal/Abdul Basit.ogg</file>
+        <file alias="Normal_Abdur_Ra'uf">audio/Normal/Abdur Ra'uf.ogg</file>
+        <file alias="Normal_Al-Minshawi">audio/Normal/Al-Minshawi.ogg</file>
+        <file alias="Normal_Azzam_Douik_Takbir">audio/Normal/Azzam Douik Takbir.ogg</file>
+        <file alias="Normal_Essam_Al-Khan">audio/Normal/Essam Al-Khan.ogg</file>
+        <file alias="Normal_Mishary_Al-Afasy">audio/Normal/Mishary Al-Afasy.ogg</file>
+        <file alias="Normal_Nasir_Al-Qatami_Takbir">audio/Normal/Nasir Al-Qatami Takbir.ogg</file>
+        <file alias="Normal_Nasir_Al-Qatami">audio/Normal/Nasir Al-Qatami.ogg</file>
+        <file alias="Normal_Yusuf_Islam">audio/Normal/Yusuf Islam.ogg</file>
+    </qresource>
+</RCC>
