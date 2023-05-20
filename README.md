@@ -3,3 +3,10 @@
 </p>
 <H1 align="center">SilatyQt</H1>
 <p align="center">A neat prayer reminder app in Qt (written in c++)<p align="center">
+  
+## Previews
+  
+<details>
+<summary>Windows</summary>
+<img src="screenshots/SilatyHomeWindows.png"/>
+</details>
