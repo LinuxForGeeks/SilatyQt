@@ -33,15 +33,9 @@ jobs:
    - name: Compile Silaty
      run: qmake && make -j8
 
-   - name: Build AppImage
+   - name: test
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
-       sudo apt install libfuse2
-       wget -O deploy.AppImage https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
-       chmod +x deploy.AppImage
-       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{ github.workspace }}/qt/Qt/6.50/gcc_64/lib/
-       ls
-       ./deploy.AppImage --appdir=${{ env.SOURCE_DIR }} -extra-plugins=renderers
        ls
      
    - name: Release Silaty
