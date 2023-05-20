@@ -10,6 +10,10 @@
 <summary>Windows</summary>
 <img src="screenshots/SilatyHomeWindows.png"/>
 </details>
+<details open>
+<summary>Linux</summary>
+<img src="screenshots/SilatyHomeLinux.png"/>
+</details>
 
 ## Building
   - Get [Qt Creator](https://www.qt.io/product/development-tools)
