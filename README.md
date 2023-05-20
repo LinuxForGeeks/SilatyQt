@@ -10,7 +10,7 @@
 <summary>Windows</summary>
 <img src="screenshots/SilatyHomeWindows.png"/>
 </details>
-<summary>Windows</summary>
+<summary>Linux</summary>
 <img src="screenshots/SilatyHomeLinux.png"/>
 </details>
 
