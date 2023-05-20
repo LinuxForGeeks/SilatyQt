@@ -31,7 +31,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: qmake && make -j1
+     run: qmake && make -j8
 
    - name: Build AppImage
      working-directory: ${{ env.SOURCE_DIR }}
