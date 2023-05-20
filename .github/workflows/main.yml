@@ -5,6 +5,9 @@ on:
   branches:
    - main
 
+env:
+  SOURCE_DIR:   ${{ github.workspace }}
+
 jobs:
 
 # linux ----------------------------------------------------------------
@@ -30,8 +33,15 @@ jobs:
    - name: Compile Silaty
      run: qmake && make -j1 &&
 
-   - name: List files
-     run: ls ./build_dir
+   - name: Build AppImage
+        working-directory: ${{ env.SOURCE_DIR }}
+        run: |
+          wget -O deploy.AppImage https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+          chmod +x deploy.AppImage
+          export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{ github.workspace }}/qt/Qt/6.50/gcc_64/lib/
+          cp ${{ env.SOURCE_DIR }}/linux/* .
+          ./deploy.AppImage planets-qml.desktop -appimage -no-translations -qmldir=${{ env.SOURCE_DIR }} -extra-plugins=renderers
+          mv Qt_planets_app*.AppImage ${{ env.ARTIFACT }}          
      
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
