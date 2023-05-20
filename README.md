@@ -10,3 +10,11 @@
 <summary>Windows</summary>
 <img src="screenshots/SilatyHomeWindows.png"/>
 </details>
+
+## Credits
+
+- [Jessewb786](https://github.com/Jessewb786)
+
+## License
+
+SilatyQt and Silaty are licensed under the [GPL license](LICENSE).
