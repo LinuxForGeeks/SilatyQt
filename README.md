@@ -17,7 +17,7 @@
   - Open it in Qt Creator
   - Build it!
   
-  - Note: Distributing it would require using windeployqt (for Windows) or [linuxdeploy](https://github.com/linuxdeploy/linuxdeploy) (for Linux)
+  - **Note: Distributing it would require using windeployqt (for Windows) or [linuxdeploy](https://github.com/linuxdeploy/linuxdeploy) (for Linux)**
   
 ## Credits
 
