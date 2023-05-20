@@ -13,6 +13,11 @@
 
 ## Credits
 
+### Qt App
+  - [mustafakhalaf-git](https://github.com/mustafakhalaf-git)
+
+## Original GTK App
+- [AXeL-dev](https://github.com/AXeL-dev)
 - [Jessewb786](https://github.com/Jessewb786)
 
 ## License
