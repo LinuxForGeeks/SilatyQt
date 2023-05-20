@@ -21,7 +21,7 @@ jobs:
       submodules: recursive
 
    - name: Install Qt
-     uses: jurplel/install-qt-action@latest
+     uses: jurplel/install-qt-action@v3.2.1
      with:
       version: 6.5.0
       host: linux
