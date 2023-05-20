@@ -1,0 +1,41 @@
+name: Silaty
+
+on:
+ push:
+  branches:
+   - master
+   - main
+
+jobs:
+
+# linux ----------------------------------------------------------------
+ jqtlinux:
+  name: Linux
+  runs-on: ubuntu-22.04
+  steps:
+   - name: Check Git repository
+     uses: actions/checkout@v3
+     with:
+      submodules: recursive
+
+   - name: Install Qt
+     uses: jurplel/install-qt-action@v3
+     with:
+      version: 6.5.0
+      host: linux
+      target: desktop
+      dir: '${{github.workspace}}/qt/'
+      modules: 'qtmultimedia'
+      aqtversion: '==2.1.0'
+
+   - name: Compile Silaty
+     run: mkdir build_dir && qmake && make -j1 in $GITHUB_WORKSPACE/build_dir
+
+   - name: List files
+     run: ls ./build_dir
+     
+   - name: Release Silaty
+     uses: actions/upload-artifact@v2.2.4
+     with:
+      name: "linux"
+      path: ./Silaty
