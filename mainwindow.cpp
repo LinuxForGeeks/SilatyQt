@@ -537,7 +537,7 @@ void MainWindow::call_prayer(QString prayer_na, QString prayer_en_name, int send
     //auto player = new QMediaPlayer(this);
     player->setAudioOutput(audioOutput);
     audioOutput->setVolume(100);
-    if (send_notif == 1) {
+    if (send_notif != 2) {
         if (prayer_en_name == "Fajr") {
             player->setSource(QUrl("qrc:/audio/Fajr_"+ui->sFAc->currentText().replace(" ", "_")));
             player->play();
