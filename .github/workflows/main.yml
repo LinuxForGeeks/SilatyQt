@@ -3,7 +3,6 @@ name: Silaty
 on:
  push:
   branches:
-   - master
    - main
 
 jobs:
@@ -29,7 +28,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: mkdir build_dir && qmake && make -j1 in $GITHUB_WORKSPACE/build_dir
+     run: qmake && make -j1 &&
 
    - name: List files
      run: ls ./build_dir
