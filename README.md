@@ -11,6 +11,14 @@
 <img src="screenshots/SilatyHomeWindows.png"/>
 </details>
 
+## Building
+  - Get [Qt Creator](https://www.qt.io/product/development-tools)
+  - Clone this repository
+  - Open it in Qt Creator
+  - Build it!
+  
+  (Distributing it would require using windeployqt (for Windows) or [linuxdeploy](https://github.com/linuxdeploy/linuxdeploy) (for Linux))
+  
 ## Credits
 
 ### Qt App
