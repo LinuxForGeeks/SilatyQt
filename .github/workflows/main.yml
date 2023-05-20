@@ -21,7 +21,7 @@ jobs:
       submodules: recursive
 
    - name: Install Qt
-     uses: jurplel/install-qt-action@v3
+     uses: jurplel/install-qt-action@latest
      with:
       version: 6.5.0
       host: linux
@@ -31,7 +31,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: qmake && make -j1 &&
+     run: qmake && make -j1
 
    - name: Build AppImage
      working-directory: ${{ env.SOURCE_DIR }}
