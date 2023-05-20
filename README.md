@@ -6,7 +6,7 @@
   
 ## Previews
   
-<details>
-<summary open>Windows</summary>
+<details open>
+<summary>Windows</summary>
 <img src="screenshots/SilatyHomeWindows.png"/>
 </details>
