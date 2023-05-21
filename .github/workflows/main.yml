@@ -32,7 +32,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: ls ./qt/Qt/6.5.0 && ./qt/Qt/6.5.0/gcc_64/bin/qmake.exe -config release && make -j8
+     run: ls ./qt/Qt/6.5.0/msvc2019_64 && ./qt/Qt/6.5.0/msvc2019_64/bin/qmake.exe -config release && make -j8
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
@@ -40,7 +40,7 @@ jobs:
        mkdir unzip_cqtd
        wget -O cqtd.zip https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip
        unzip CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip -d unzip_cqtd
-       ./unzip_cqtd/CQtDeployer.exe -bin Silaty -qmake ./qt/Qt/6.5.0/gcc_64/bin/qmake.exe qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.ico
+       ./unzip_cqtd/CQtDeployer.exe -bin Silaty -qmake ./qt/Qt/6.5.0/msvc2019_64/bin/qmake.exe qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.ico
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
