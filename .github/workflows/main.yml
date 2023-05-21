@@ -10,6 +10,43 @@ env:
 
 jobs:
 
+# windows ----------------------------------------------------------------
+ silatywindows:
+  name: Windows
+  runs-on: windows-latest
+  steps:
+   - name: Check Git repository
+     uses: actions/checkout@v3
+     with:
+      submodules: recursive
+
+   - name: Install Qt
+     uses: jurplel/install-qt-action@v3.2.1
+     with:
+      version: 6.5.0
+      host: windows
+      target: desktop
+      dir: '${{github.workspace}}/qt/'
+      modules: 'qtmultimedia'
+      aqtversion: '==2.1.0'
+
+   - name: Compile Silaty
+     run: qmake -config release && make -j8
+
+   - name: Package Silaty
+     working-directory: ${{ env.SOURCE_DIR }}
+     run: |
+       mkdir unzip_cqtd
+       wget -O cqtd.zip https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip
+       unzip CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip -d unzip_cqtd
+       ./unzip_cqtd/CQtDeployer.exe -bin Silaty -qmake ./qt/Qt/6.5.0/gcc_64/bin/qmake.exe qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.ico
+       
+   - name: Release Silaty
+     uses: actions/upload-artifact@v2.2.4
+     with:
+      name: "linux"
+      path: ./DistributionKit/InstallerSilaty.exe
+
 # linux ----------------------------------------------------------------
  silatylinux:
   name: Linux
@@ -31,7 +68,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: qmake && make -j8
+     run: qmake -config release && make -j8
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
