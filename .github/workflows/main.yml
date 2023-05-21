@@ -38,8 +38,9 @@ jobs:
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
        mkdir unzip_cqtd
-       wget -O cqtd.zip https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip
-       unzip CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip -d unzip_cqtd
+       choco install wget --no-progress
+       C:\msys64\usr\bin\wget.exe -O cqtd.zip https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip
+       7z x CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip -ounzip_cqtd
        ./unzip_cqtd/CQtDeployer.exe -bin Silaty -qmake ./qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.ico
        
    - name: Release Silaty
