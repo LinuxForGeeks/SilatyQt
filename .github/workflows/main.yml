@@ -11,7 +11,7 @@ env:
 jobs:
 
 # linux ----------------------------------------------------------------
- jqtlinux:
+ silatylinux:
   name: Linux
   runs-on: ubuntu-22.04
   steps:
