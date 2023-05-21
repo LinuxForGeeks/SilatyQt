@@ -40,15 +40,10 @@ jobs:
      run: |
        mkdir unzip_cqtd
        choco install wget --no-progress
-       C:\msys64\usr\bin\wget.exe -O cqtd.exe https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.exe
-       ./cqtd.exe install
+       C:\msys64\usr\bin\wget.exe -O cqtd.zip https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.zip
+       7z x cqtd.zip -oqt\Qt\
        cd release
-       ls 
-       cd C:\
-       ls
-       cd "C:\Program Files"
-       ls
-       cqtdeployer -bin Silaty.exe -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia
+       ../qt/Qt/CQtDeployer.exe -bin Silaty.exe -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
