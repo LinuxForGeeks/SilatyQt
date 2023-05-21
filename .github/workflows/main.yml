@@ -44,7 +44,7 @@ jobs:
        ./cqtd.exe install --accept-messages --root D:\a\SilatyQt\SilatyQt\qt\Qt\ --confirm-command
        cd release
        ls ../qt/Qt/
-       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia
+       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia -icon ../images/Icons/silaty.ico
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
