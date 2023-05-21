@@ -45,7 +45,7 @@ jobs:
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
      with:
-      name: "linux"
+      name: "windows"
       path: ./DistributionKit/InstallerSilaty.exe
 
 # linux ----------------------------------------------------------------
