@@ -20,19 +20,24 @@ jobs:
      with:
       submodules: recursive
 
+   - name: Set up Visual Studio shell
+     uses: egor-tensin/vs-shell@v2
+     with:
+       arch: x64
+
    - name: Install Qt
      uses: jurplel/install-qt-action@v3.2.1
      with:
+      arch: win64_msvc2019_64
       version: 6.5.0
       host: windows
       target: desktop
-      arch: win64_msvc2019_64
       dir: '${{github.workspace}}/qt/'
       modules: 'qtmultimedia'
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: ls ./qt/Qt/6.5.0/msvc2019_64 && ./qt/Qt/6.5.0/msvc2019_64/bin/qmake.exe -config release && make -j8
+     run: qmake -config release && make -j8
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
