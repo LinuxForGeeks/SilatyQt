@@ -43,7 +43,7 @@ jobs:
        7z x cqtd.zip -ounzip_cqtd
        ls
        cd ./unzip_cqtd/
-       ./CQtDeployer.exe -bin ../Silaty.exe -qmake ./qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.ico
+       ./CQtDeployer.exe -bin ../release/Silaty.exe -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ../images/Icons/silaty.ico
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
