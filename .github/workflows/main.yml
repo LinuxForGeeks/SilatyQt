@@ -23,13 +23,13 @@ jobs:
    - name: Install Qt
      uses: jurplel/install-qt-action@v3.2.1
      with:
-      arch: win64_mingw73
+      arch: win64_mingw
       version: 6.5.0
       host: windows
       target: desktop
       dir: '${{github.workspace}}/qt/'
       modules: 'qtmultimedia'
-      aqtversion: '==2.1.0'
+      aqtversion: '==3.1.6'
 
    - name: Compile Silaty
      run: qmake -config release -spec win32-g++ && make -j8
@@ -61,13 +61,12 @@ jobs:
    - name: Install Qt
      uses: jurplel/install-qt-action@v3.2.1
      with:
-      arch: win64_mingw
       version: 6.5.0
       host: linux
       target: desktop
       dir: '${{github.workspace}}/qt/'
       modules: 'qtmultimedia'
-      aqtversion: '==3.1.6'
+      aqtversion: '==2.1.0'
 
    - name: Compile Silaty
      run: qmake -config release && make -j8
