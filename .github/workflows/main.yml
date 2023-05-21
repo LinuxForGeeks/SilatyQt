@@ -31,7 +31,7 @@ jobs:
       aqtversion: '==2.1.0'
 
    - name: Compile Silaty
-     run: qmake && make -j8
+     run: ls ./qt/Qt/6.5.0/gcc_64/plugins && qmake && make -j8
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
