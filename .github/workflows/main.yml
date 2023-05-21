@@ -32,7 +32,7 @@ jobs:
       aqtversion: '==3.1.6'
 
    - name: Compile Silaty
-     run: qmake -config release -spec win32-g++ && make -j1
+     run: qmake -config release && make -j1
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
