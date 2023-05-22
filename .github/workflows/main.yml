@@ -36,16 +36,12 @@ jobs:
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
-       ls
-       ls ./qt
-       ls ./qt/Qt
-       ls ./qt/Qt/6.5.0
-       choco install wget --no-progress
+       ls ./qt/Qt/6.5.0/macos
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
      with:
-      name: "windows"
+      name: "macOS"
       path: ./release/DistributionKit/InstallerSilaty.exe
 
 # windows ----------------------------------------------------------------
