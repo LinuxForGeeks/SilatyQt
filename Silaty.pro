@@ -6,6 +6,7 @@ CONFIG += c++17
 CONFIG += resources_big
 
 ICON = silaty.icns
+RC_ICONS = silaty.ico
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
