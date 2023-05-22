@@ -43,7 +43,7 @@ jobs:
        C:\msys64\usr\bin\wget.exe -O cqtd.exe https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.exe
        ./cqtd.exe install --accept-messages --root D:\a\SilatyQt\SilatyQt\qt\Qt\ --confirm-command
        cd release
-       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -binDir ../winBin -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia -icon ../images/Icons/silaty.ico -description "A neat prayer reminder application" -deployVersion 1.6
+       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -binDir ../winBin -qmake ../qt/Qt/6.5.0/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.0/mingw_64/plugins/multimedia -icon ../images/Icons/silaty.ico -deployVersion 1.6
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
@@ -79,7 +79,7 @@ jobs:
      run: |
        wget -O cqtd.deb https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Linux_x86_64.deb
        sudo apt install ./cqtd.deb
-       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -description "A neat prayer reminder application" -deployVersion 1.6
+       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -deployVersion 1.6
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
