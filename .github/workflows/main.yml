@@ -6,7 +6,7 @@ on:
    - main
 
 env:
-  SOURCE_DIR:   ${{ github.workspace }}
+  SOURCE_DIR: ${{ github.workspace }}
 
 jobs:
 
