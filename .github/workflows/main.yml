@@ -117,6 +117,7 @@ jobs:
        mv Silaty.app ./release
        cd release
        ../qt/Qt/6.5.0/macos/bin/macdeployqt ./Silaty.app -verbose=3
+        ./Silaty.app/Contents/MacOS/project
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
