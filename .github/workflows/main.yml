@@ -36,7 +36,8 @@ jobs:
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
-       ls ./qt/Qt/6.5.0/macos
+       ls ./
+       ls ./qt/Qt/6.5.0/macos/bin/qtdeploy*
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
