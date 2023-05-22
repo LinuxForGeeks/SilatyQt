@@ -119,7 +119,7 @@ jobs:
        ../qt/Qt/6.5.0/macos/bin/macdeployqt ./Silaty.app -verbose=3
        ls ./
        ls ../
-       ./release/Silaty.app/Contents/MacOS/Silaty
+       ./Silaty.app/Contents/MacOS/Silaty
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
