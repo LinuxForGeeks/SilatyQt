@@ -75,6 +75,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     player = new QMediaPlayer(this);
 
+    qDebug() << "sus";
+
     const QString LanguageArray[4] = {"en_US", "ar_FR", "fr_FR", "es_ES"};
 
     ui->sLc->setCurrentIndex(saved_settings.value("language").toInt());
