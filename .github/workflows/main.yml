@@ -10,6 +10,44 @@ env:
 
 jobs:
 
+# macOS ----------------------------------------------------------------
+ silatymacos:
+  name: macOS
+  runs-on: macos-latest
+  steps:
+   - name: Check Git repository
+     uses: actions/checkout@v3
+     with:
+      submodules: recursive
+
+   - name: Install Qt
+     uses: jurplel/install-qt-action@v3.2.1
+     with:
+      version: 6.5.0
+      host: mac
+      target: desktop
+      dir: '${{github.workspace}}/qt/'
+      modules: 'qtmultimedia'
+      aqtversion: '==3.1.6'
+
+   - name: Compile Silaty
+     run: qmake -config release && make -j1
+
+   - name: Package Silaty
+     working-directory: ${{ env.SOURCE_DIR }}
+     run: |
+       ls
+       ls ./qt
+       ls ./qt/Qt
+       ls ./qt/Qt/6.5.0
+       choco install wget --no-progress
+       
+   - name: Release Silaty
+     uses: actions/upload-artifact@v2.2.4
+     with:
+      name: "windows"
+      path: ./release/DistributionKit/InstallerSilaty.exe
+
 # windows ----------------------------------------------------------------
  silatywindows:
   name: Windows
@@ -33,7 +71,7 @@ jobs:
       aqtversion: '==3.1.6'
 
    - name: Compile Silaty
-     run: ls ./qt/Qt/6.5.0 && qmake -config release && make -j1
+     run: qmake -config release && make -j1
 
    - name: Package Silaty
      working-directory: ${{ env.SOURCE_DIR }}
