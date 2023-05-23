@@ -16,7 +16,7 @@
 </details>
 <details open>
 <summary>macOS</summary>
-<img src="screenshots/SilatyHomeMacOS.png"/>
+<img src="screenshots/SilatyHomeOSX.png"/>
 </details>
 
 ## Building
