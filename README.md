@@ -14,6 +14,10 @@
 <summary>Linux</summary>
 <img src="screenshots/SilatyHomeLinux.png"/>
 </details>
+<details open>
+<summary>macOS</summary>
+<img src="screenshots/SilatyHomeMacOS.png"/>
+</details>
 
 ## Building
   - Get [Qt Creator](https://www.qt.io/product/development-tools)
