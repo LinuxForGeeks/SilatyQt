@@ -41,6 +41,7 @@ jobs:
        ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
        
    - name: Release Silaty
+     if: always()
      uses: actions/upload-artifact@v2.2.4
      with:
       name: "windows"
