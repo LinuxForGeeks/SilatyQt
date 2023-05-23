@@ -27,6 +27,7 @@ jobs:
       version: 6.5.0
       host: windows
       target: desktop
+      tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
       dir: '${{github.workspace}}/qt/'
       modules: 'qtmultimedia'
       aqtversion: '==3.1.6'
