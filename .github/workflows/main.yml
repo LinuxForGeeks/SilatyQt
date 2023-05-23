@@ -39,14 +39,13 @@ jobs:
      run: |
        cd release
        ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
-       Compress-Archive -Path ./* -Destination ./Silaty.zip
-       ls
+       Compress-Archive -Path ./* -Destination ../Silaty.zip
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
      with:
       name: "windows"
-      path: ./release/Silaty.zip
+      path: ./Silaty.zip
 
 # linux ----------------------------------------------------------------
  silatylinux:
