@@ -69,6 +69,7 @@ QMediaPlayer player;
 int fajr_azan;
 int normal_azan;
 bool hijri_calendar;
+bool aot;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) , ui(new Ui::MainWindow) {
@@ -88,10 +89,15 @@ MainWindow::MainWindow(QWidget *parent)
     clock_format = ui->sCFc->currentIndex();
     ui->cHijri->setChecked(saved_settings.value("hijri_calendar").toBool());
     hijri_calendar = ui->cHijri->isChecked();
+    ui->sAOTc->setChecked(saved_settings.value("always_on_top").toBool());
+    aot = ui->sAOTc->isChecked();
     if (hijri_calendar == true) {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::IslamicCivil));
     } else {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::Gregorian));
+    }
+    if (aot == true) {
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
     }
     ui->sFAc->setCurrentIndex(saved_settings.value("fajr_azan").toInt());
     ui->sNAc->setCurrentIndex(saved_settings.value("normal_azan").toInt());
@@ -103,12 +109,14 @@ MainWindow::MainWindow(QWidget *parent)
         saved_settings.setValue("time_zone", 2.00);
         ui->sTZd->setValue(saved_settings.value("time_zone").toDouble());
     }
-
     fajr_azan = ui->sFAc->currentIndex();
     normal_azan = ui->sNAc->currentIndex();
     Time_Zone = ui->sTZd->value();
     madhab_cal = ui->sMadhabc->currentIndex();
     cal_m = ui->sCMc->currentIndex();
+    if (aot == true) {
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    }
     get_prayer();
 
     // connect buttons
@@ -128,6 +136,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->sMadhabc, SIGNAL(currentIndexChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sCMc, SIGNAL(currentIndexChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->cHijri, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
+    QObject::connect(ui->sAOTc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
 }
 
 void MainWindow::save_settings_data() {
@@ -146,6 +155,7 @@ void MainWindow::save_settings_data() {
     saved_settings.setValue("madhab", ui->sMadhabc->currentIndex());
     saved_settings.setValue("calc_method", ui->sCMc->currentIndex());
     saved_settings.setValue("hijri_calendar", ui->cHijri->isChecked());
+    saved_settings.setValue("always_on_top", ui->sAOTc->isChecked());
     if (hijri_calendar == true) {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::IslamicCivil));
     } else {
@@ -241,6 +251,7 @@ void MainWindow::set_locales() {
         ui->sTZd->setAlignment(Qt::AlignRight);
         ui->aWc->setLayoutDirection(Qt::LeftToRight);
         ui->aWl->setLayoutDirection(Qt::LeftToRight);
+        ui->sAOT->setAlignment(Qt::AlignRight);
     }
     QTimer* timer1 = new QTimer();
     timer1->setInterval(100);

@@ -46,6 +46,7 @@ extern int time_before_notification;
 extern int fajr_azan;
 extern int normal_azan;
 extern bool hijri_calendar;
+extern bool aot;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
