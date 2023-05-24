@@ -41,6 +41,11 @@ jobs:
      run: |
        cd release
        ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
+
+   - uses: sibiraj-s/action-eslint@v1
+     with:
+        extensions: 'js, jsx, ts, tsx'
+        annotations: false
        
    - name: Release Silaty
      if: always()
