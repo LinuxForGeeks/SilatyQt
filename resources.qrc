@@ -22,6 +22,8 @@
         <file alias="silaty_tray">images/Icons/TrayIcon.svg</file>
         <file alias="Quit">images/Icons/Quit.png</file>
         <file alias="silaty_icon_48">images/Icons/silaty_48.svg</file>
+        <file alias="silaty_png">images/Icons/silaty.png</file>
+        <file alias="silaty_png_48">images/Icons/silaty_48_png.png</file>
     </qresource>
     <qresource prefix="/data">
         <file alias="Locations">data/Locations.xml</file>
