@@ -46,6 +46,8 @@ jobs:
      with:
         extensions: 'js, jsx, ts, tsx'
         annotations: false
+     env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        
    - name: Release Silaty
      if: always()
