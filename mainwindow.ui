@@ -248,7 +248,7 @@
     <item>
      <widget class="QStackedWidget" name="widgets">
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="home">
        <property name="layoutDirection">
@@ -617,327 +617,56 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-33</y>
              <width>356</width>
-             <height>581</height>
+             <height>506</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="17" column="0">
-             <widget class="QLabel" name="sLocation">
-              <property name="font">
-               <font>
-                <bold>true</bold>
-               </font>
-              </property>
+             <widget class="QLabel" name="sLongitude">
               <property name="text">
-               <string>Location</string>
+               <string>   Longitude:</string>
               </property>
              </widget>
             </item>
-            <item row="19" column="2">
-             <widget class="QDoubleSpinBox" name="sLatituded">
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-              <property name="decimals">
-               <number>6</number>
-              </property>
-              <property name="minimum">
-               <double>-99.000000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="15" column="2">
-             <widget class="QComboBox" name="sCMc">
+            <item row="9" column="2">
+             <widget class="QComboBox" name="sFAc">
               <item>
                <property name="text">
-                <string>Makkah</string>
+                <string>Nasir Al-Qatami Takbir</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Egypt</string>
+                <string>Muhammad Muhsen</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Karachi</string>
+                <string>Azzam Douik Takbir</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>ISNA</string>
+                <string>Mishary Al-Afasy</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>MWL</string>
+                <string>Azzam Douik</string>
                </property>
               </item>
              </widget>
             </item>
-            <item row="7" column="2">
-             <widget class="QComboBox" name="sLc">
-              <item>
-               <property name="text">
-                <string>English</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Arabic</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>French</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Spanish</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="QLabel" name="sNotifications">
-              <property name="font">
-               <font>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Notifications</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="sCF">
               <property name="text">
                <string>   Clock Format:</string>
               </property>
              </widget>
             </item>
-            <item row="21" column="0">
-             <widget class="QLabel" name="sTZ">
-              <property name="text">
-               <string>   Time Zone:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QCheckBox" name="sSMc">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="12" column="0">
-             <widget class="QLabel" name="sFA">
-              <property name="text">
-               <string>   Fajr Adhan:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="13" column="0">
-             <widget class="QLabel" name="sNA">
-              <property name="text">
-               <string>   Normal Adhan:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="18" column="2">
-             <widget class="QComboBox" name="sCc"/>
-            </item>
-            <item row="0" column="0" colspan="3">
-             <widget class="QLabel" name="sSystem">
-              <property name="font">
-               <font>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>System</string>
-              </property>
-             </widget>
-            </item>
-            <item row="13" column="1">
-             <widget class="QToolButton" name="sNAt">
-              <property name="text">
-               <string>⏵</string>
-              </property>
-             </widget>
-            </item>
             <item row="10" column="2">
-             <widget class="QCheckBox" name="sEANc">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="0">
-             <widget class="QLabel" name="sEAN">
-              <property name="text">
-               <string>   Enable audio notifications:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2">
-             <widget class="QComboBox" name="sCFc">
-              <item>
-               <property name="text">
-                <string>24h</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>12h</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="18" column="0">
-             <widget class="QLabel" name="sCity">
-              <property name="text">
-               <string>   City:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="sL">
-              <property name="text">
-               <string>   Language:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="15" column="0">
-             <widget class="QLabel" name="sCM">
-              <property name="text">
-               <string>   Calculation Method:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="11" column="0">
-             <widget class="QLabel" name="sTBN">
-              <property name="text">
-               <string>   Time before notification:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="14" column="0">
-             <widget class="QLabel" name="sJurisprudence">
-              <property name="font">
-               <font>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Jurisprudence</string>
-              </property>
-             </widget>
-            </item>
-            <item row="21" column="2">
-             <widget class="QDoubleSpinBox" name="sTZd">
-              <property name="value">
-               <double>2.000000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="9" column="2">
-             <widget class="QCheckBox" name="sSTIc">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="12" column="1">
-             <widget class="QToolButton" name="sFAt">
-              <property name="text">
-               <string>⏵</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="sAHC">
-              <property name="text">
-               <string>   Adjust Hijri Calendar:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="sSM">
-              <property name="text">
-               <string>   Start Minimized:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="sDST">
-              <property name="text">
-               <string>   Daylight Saving Time:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="9" column="0">
-             <widget class="QLabel" name="sSTI">
-              <property name="text">
-               <string>   Show Time left with Icon:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="16" column="2">
-             <widget class="QComboBox" name="sMadhabc">
-              <item>
-               <property name="text">
-                <string>Default</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Hanafi</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="16" column="0">
-             <widget class="QLabel" name="sMadhab">
-              <property name="text">
-               <string>   Madhab:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="20" column="2">
-             <widget class="QDoubleSpinBox" name="sLongituded">
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-              <property name="decimals">
-               <number>6</number>
-              </property>
-              <property name="minimum">
-               <double>-99.000000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="19" column="0">
-             <widget class="QLabel" name="sLatitude">
-              <property name="text">
-               <string>   Latitude:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="13" column="2">
              <widget class="QComboBox" name="sNAc">
               <item>
                <property name="text">
@@ -986,73 +715,37 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
               </item>
              </widget>
             </item>
-            <item row="1" column="2">
-             <widget class="QCheckBox" name="sAOTc">
+            <item row="16" column="0">
+             <widget class="QLabel" name="sLatitude">
               <property name="text">
-               <string>Restart Silaty to apply</string>
+               <string>   Latitude:</string>
               </property>
              </widget>
             </item>
-            <item row="6" column="2">
-             <widget class="QSpinBox" name="sAHCs">
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="12" column="2">
-             <widget class="QComboBox" name="sFAc">
-              <item>
-               <property name="text">
-                <string>Nasir Al-Qatami Takbir</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Muhammad Muhsen</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Azzam Douik Takbir</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Mishary Al-Afasy</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Azzam Douik</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="20" column="0">
-             <widget class="QLabel" name="sLongitude">
+            <item row="13" column="0">
+             <widget class="QLabel" name="sMadhab">
               <property name="text">
-               <string>   Longitude:</string>
+               <string>   Madhab:</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="2">
-             <widget class="QCheckBox" name="sDSTc">
+            <item row="9" column="1">
+             <widget class="QToolButton" name="sFAt">
               <property name="text">
-               <string/>
+               <string>▶️</string>
               </property>
-              <property name="checked">
+             </widget>
+            </item>
+            <item row="17" column="2">
+             <widget class="QDoubleSpinBox" name="sLongituded">
+              <property name="readOnly">
                <bool>true</bool>
               </property>
-             </widget>
-            </item>
-            <item row="11" column="2">
-             <widget class="QSpinBox" name="sTBNs">
-              <property name="value">
-               <number>10</number>
+              <property name="decimals">
+               <number>6</number>
+              </property>
+              <property name="minimum">
+               <double>-99.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -1066,6 +759,262 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="2">
+             <widget class="QComboBox" name="sMadhabc">
+              <item>
+               <property name="text">
+                <string>Default</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Hanafi</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="15" column="2">
+             <widget class="QComboBox" name="sCc"/>
+            </item>
+            <item row="10" column="1">
+             <widget class="QToolButton" name="sNAt">
+              <property name="text">
+               <string>▶️</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="sSM">
+              <property name="text">
+               <string>   Start Minimized:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="2">
+             <widget class="QComboBox" name="sCMc">
+              <item>
+               <property name="text">
+                <string>Makkah</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Egypt</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Karachi</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>ISNA</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MWL</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="sNotifications">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Notifications</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="sEAN">
+              <property name="text">
+               <string>   Enable audio notifications:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QCheckBox" name="sSMc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="18" column="2">
+             <widget class="QDoubleSpinBox" name="sTZd">
+              <property name="value">
+               <double>2.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="2">
+             <widget class="QSpinBox" name="sTBNs">
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="0">
+             <widget class="QLabel" name="sLocation">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Location</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="sL">
+              <property name="text">
+               <string>   Language:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="2">
+             <widget class="QCheckBox" name="sEANc">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="sTBN">
+              <property name="text">
+               <string>   Time before notification:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QComboBox" name="sCFc">
+              <item>
+               <property name="text">
+                <string>24h</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>12h</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="16" column="2">
+             <widget class="QDoubleSpinBox" name="sLatituded">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="decimals">
+               <number>6</number>
+              </property>
+              <property name="minimum">
+               <double>-99.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
+             <widget class="QLabel" name="sFA">
+              <property name="text">
+               <string>   Fajr Adhan:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="sNA">
+              <property name="text">
+               <string>   Normal Adhan:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0">
+             <widget class="QLabel" name="sCity">
+              <property name="text">
+               <string>   City:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="0">
+             <widget class="QLabel" name="sCM">
+              <property name="text">
+               <string>   Calculation Method:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="sSystem">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>System</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QComboBox" name="sLc">
+              <item>
+               <property name="text">
+                <string>English</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Arabic</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>French</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Spanish</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QCheckBox" name="sAOTc">
+              <property name="text">
+               <string>(Restart Silaty to apply)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="18" column="0">
+             <widget class="QLabel" name="sTZ">
+              <property name="text">
+               <string>   Time Zone:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QLabel" name="sJurisprudence">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Jurisprudence</string>
               </property>
              </widget>
             </item>

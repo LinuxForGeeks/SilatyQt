@@ -119,6 +119,16 @@ MainWindow::MainWindow(QWidget *parent)
     }
     get_prayer();
 
+    if (saved_settings.contains("start_minimized")) {
+        ui->sSMc->setChecked(saved_settings.value("start_minimized").toBool());
+    } else {
+        saved_settings.setValue("start_minimized", false);
+        ui->sSMc->setChecked(saved_settings.value("start_minimized").toBool());
+    }
+    if (ui->sSMc->isChecked() == false) {
+        showHome();
+    }
+
     // connect buttons
     QObject::connect(ui->homeButton, SIGNAL(clicked()), this, SLOT(sel_home()));
     QObject::connect(ui->compassButton, SIGNAL(clicked()), this, SLOT(sel_qibla()));
@@ -137,6 +147,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->sCMc, SIGNAL(currentIndexChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->cHijri, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sAOTc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
+    QObject::connect(ui->sSMc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
 }
 
 void MainWindow::save_settings_data() {
@@ -156,6 +167,7 @@ void MainWindow::save_settings_data() {
     saved_settings.setValue("calc_method", ui->sCMc->currentIndex());
     saved_settings.setValue("hijri_calendar", ui->cHijri->isChecked());
     saved_settings.setValue("always_on_top", ui->sAOTc->isChecked());
+    saved_settings.setValue("start_minimized", ui->sSMc->isChecked());
     if (hijri_calendar == true) {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::IslamicCivil));
     } else {
@@ -191,12 +203,9 @@ void MainWindow::set_locales() {
     ui->cHijri->setText(JsonDoc.object().value("cHijri").toString());
     ui->sSystem->setText(JsonDoc.object().value("sSystem").toString());
     ui->sSM->setText("   " + JsonDoc.object().value("sSM").toString());
-    ui->sDST->setText("   " + JsonDoc.object().value("sDST").toString());
     ui->sCF->setText("   " + JsonDoc.object().value("sCF").toString());
-    ui->sAHC->setText("   " + JsonDoc.object().value("sAHC").toString());
     ui->sL->setText("   " + JsonDoc.object().value("sL").toString());
     ui->sNotifications->setText(JsonDoc.object().value("sNotifications").toString());
-    ui->sSTI->setText("   " + JsonDoc.object().value("sSTI").toString());
     ui->sEAN->setText("   " + JsonDoc.object().value("sEAN").toString());
     ui->sTBN->setText("   " + JsonDoc.object().value("sTBN").toString());
     ui->sFA->setText("   " + JsonDoc.object().value("sFA").toString());
@@ -244,7 +253,6 @@ void MainWindow::set_locales() {
         ui->settings->setLayoutDirection(Qt::RightToLeft);
         ui->about->setLayoutDirection(Qt::RightToLeft);
         ui->cHijri->setLayoutDirection(Qt::LeftToRight);
-        ui->sAHCs->setAlignment(Qt::AlignRight);
         ui->sTBNs->setAlignment(Qt::AlignRight);
         ui->sLatituded->setAlignment(Qt::AlignRight);
         ui->sLongituded->setAlignment(Qt::AlignRight);
@@ -267,7 +275,6 @@ void MainWindow::set_locales() {
         } else {
             ui->cDate->setText(QLocale().toString(QDate::currentDate(), "dddd")+", "+QString(QDate::currentDate().toString("dd")) + QLocale().toString(QDate::currentDate(), " MMMM ") + QString(QDate::currentDate().toString("yyyy")));
         }
-        saved_settings.setValue("start_minimized", ui->sSMc->isEnabled());
     });
     timer1->start();
 }
@@ -538,11 +545,11 @@ void MainWindow::get_locations() {
 void MainWindow::call_prayer(QString prayer_na, QString prayer_en_name, int send_notif) {
     QString notif = JsonDoc.object().value("ITFP").toString().replace("name", prayer_na);
     QSystemTrayIcon notification = new QSystemTrayIcon();
-    notification.setIcon(QIcon(QString(":/icons/silaty_tray")));
+    notification.setIcon(QIcon(QString(":/icons/silaty_png")));
     if (send_notif == 0) {
         notification.show();
         notification.setVisible(true);
-        notification.showMessage(JsonDoc.object().value("Silaty").toString(), notif, QIcon(QString(":/icons/silaty_tray")));
+        notification.showMessage(JsonDoc.object().value("Silaty").toString(), notif, QIcon(QString(":/icons/silaty_png")));
     }
     auto audioOutput = new QAudioOutput(this);
     //auto player = new QMediaPlayer(this);
@@ -563,21 +570,21 @@ void MainWindow::call_prayer(QString prayer_na, QString prayer_en_name, int send
 }
 
 void MainWindow::play_fajr_audio() {
-    if (ui->sFAt->text() == "⏵") {
+    if (ui->sFAt->text() == "▶️") {
         ui->sFAt->setText("⏹");
         call_prayer("none", "Fajr", 1);
     } else if (ui->sFAt->text() == "⏹") {
-        ui->sFAt->setText("⏵");
+        ui->sFAt->setText("▶️");
         call_prayer("none", "Fajr", 2);
     }
 }
 
 void MainWindow::play_normal_audio() {
-    if (ui->sNAt->text() == "⏵") {
+    if (ui->sNAt->text() == "▶️") {
         ui->sNAt->setText("⏹");
         call_prayer("none", "Normal", 1);
     } else if (ui->sNAt->text() == "⏹") {
-        ui->sNAt->setText("⏵");
+        ui->sNAt->setText("▶️");
         call_prayer("none", "Normal", 2);
     }
 }

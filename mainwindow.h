@@ -6,6 +6,7 @@
 #include <QCloseEvent>
 #include <QAction>
 #include <QMediaPlayer>
+#include <QSystemTrayIcon>
 
 extern QString sel_locale;
 extern QString version;
@@ -39,7 +40,6 @@ extern QAction *isha_tr;
 extern QAction *time_left_tray;
 extern QAction *location_tr;
 extern QAction *home_tr;
-extern int adjust_hijri_calendar;
 extern bool show_time_left_icon;
 extern bool enable_audio_notif;
 extern int time_before_notification;
@@ -101,6 +101,8 @@ public slots:
     void play_normal_audio();
 
     void save_settings_data();
+
+    void showHide(QSystemTrayIcon::ActivationReason);
 
 private:
     QMediaPlayer *player;

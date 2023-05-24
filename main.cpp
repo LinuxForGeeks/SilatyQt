@@ -8,10 +8,13 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonValue>
+#include <SingleApplication.h>
+
+QSystemTrayIcon *tray;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    SingleApplication a(argc, argv);
     MainWindow w;
     // set window icon
 
@@ -20,8 +23,9 @@ int main(int argc, char *argv[])
     // make tray
     QMenu *tray_menu = new QMenu("SilatyTray");
 
-    QSystemTrayIcon tray = new QSystemTrayIcon();
-    tray.setIcon(QIcon(QString(":/icons/silaty_tray")));
+    //QSystemTrayIcon *tray
+    tray = new QSystemTrayIcon();
+    tray->setIcon(QIcon(QString(":/icons/silaty_tray")));
 
     QString val;
     QFile file;
@@ -88,9 +92,19 @@ int main(int argc, char *argv[])
     quit->setIcon(QIcon(QString(":/icons/Quit")));
     tray_menu->addAction(quit);
 
-    tray.setContextMenu(tray_menu);
-    tray.show();
-    tray.setVisible(true);
+    tray->setContextMenu(tray_menu);
+    tray->show();
+    tray->setVisible(true);
+
+    QObject::connect(tray,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),&w,SLOT(showHide(QSystemTrayIcon::ActivationReason)));
 
     return a.exec();
+}
+
+void MainWindow::showHide(QSystemTrayIcon::ActivationReason r)
+{
+    if (r == QSystemTrayIcon::Trigger)
+    {
+        tray->contextMenu()->popup(QCursor::pos());
+    }
 }
