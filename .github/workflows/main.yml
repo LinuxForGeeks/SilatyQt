@@ -42,7 +42,7 @@ jobs:
        C:\msys64\usr\bin\wget.exe -O cqtd.exe https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Windows_AMD64.exe
        ./cqtd.exe install --accept-messages --root D:\a\SilatyQt\SilatyQt\qt\Qt\ --confirm-command
        cd release
-       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -qmake ../qt/Qt/6.5.1/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.1/mingw_64/plugins/multimedia -ignore Qt6Xml.dll,Qt6Widgets.dll,Qt6Svg.dll,Qt6Network.dll,Qt6Multimedia.dll,Qt6Gui.dll,Qt6Core.dll,libwinpthread-1.dll,libstdc++-6.dll,libgcc_s_seh-1 -extraData ../winBin/* -icon ../images/Icons/silaty.ico -deployVersion 1.6
+       ../qt/Qt/1.6/CQtDeployer.exe -bin Silaty.exe -qmake ../qt/Qt/6.5.1/mingw_64/bin/qmake.exe qif -extraPlugin ../qt/Qt/6.5.1/mingw_64/plugins/multimedia -extraData ../winBin/* -icon ../images/Icons/silaty.ico -deployVersion 1.6
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4

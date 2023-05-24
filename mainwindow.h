@@ -47,6 +47,8 @@ extern int normal_azan;
 extern bool hijri_calendar;
 extern bool aot;
 
+extern QSystemTrayIcon *tray;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

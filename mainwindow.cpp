@@ -480,6 +480,7 @@ void MainWindow::get_hours_and_minutes() {
     isha_tr->setText(ui->hIshaL->text() + ":- " + ui->hIshaT->text());
     location_tr->setText(JsonDoc.object().value("sLocation").toString()+": "+ ui->sCc->currentText().split("/")[1]);
     home_tr->setText(ui->cDate->text());
+    tray->setToolTip(time_left_tray->text());
     // highlight next prayer
     ui->hFajrL->setStyleSheet("background-color: rgba(0, 0, 0, 7.5%); border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);");
     ui->hFajrT->setStyleSheet("background-color: rgba(0, 0, 0, 7.5%); border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 15%)  rgba(0, 0, 0, 0);");
