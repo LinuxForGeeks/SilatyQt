@@ -5,9 +5,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia xml
 CONFIG += c++17
 CONFIG += resources_big
 
-include(singleapplication/singleapplication.pri)
-DEFINES += QAPPLICATION_CLASS=QApplication
-
 ICON = silaty.icns
 RC_ICONS = silaty.ico
 

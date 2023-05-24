@@ -8,13 +8,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonValue>
-#include <SingleApplication.h>
 
 QSystemTrayIcon *tray;
 
 int main(int argc, char *argv[])
 {
-    SingleApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     // set window icon
 
