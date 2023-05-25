@@ -24,7 +24,7 @@ jobs:
      uses: jurplel/install-qt-action@v3.2.1
      with:
       arch: win64_mingw
-      version: 6.5.0
+      version: 6.5.1
       host: windows
       target: desktop
       tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
@@ -36,18 +36,17 @@ jobs:
      run: qmake -config release && make -j1
 
    - name: Package Silaty
-     continue-on-error: true
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
        cd release
-       ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
+       ../qt/Qt/6.5.1/mingw_64/bin/windeployqt.exe Silaty.exe
+       Compress-Archive -Path ./* -Destination ../Silaty.zip
        
    - name: Release Silaty
-     if: always()
      uses: actions/upload-artifact@v2.2.4
      with:
       name: "windows"
-      path: ./release/*
+      path: ./Silaty.zip
 
 # linux ----------------------------------------------------------------
  silatylinux:
