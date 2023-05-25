@@ -24,7 +24,7 @@ jobs:
      uses: jurplel/install-qt-action@v3.2.1
      with:
       arch: win64_mingw
-      version: 6.5.0
+      version: 6.5.1
       host: windows
       target: desktop
       tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
@@ -36,11 +36,10 @@ jobs:
      run: qmake -config release && make -j1
 
    - name: Package Silaty
-     continue-on-error: true
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
        cd release
-       ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
+       ../qt/Qt/6.5.1/mingw_64/bin/windeployqt.exe Silaty.exe
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
@@ -61,7 +60,7 @@ jobs:
    - name: Install Qt
      uses: jurplel/install-qt-action@v3.2.1
      with:
-      version: 6.5.0
+      version: 6.5.1
       host: linux
       target: desktop
       dir: '${{github.workspace}}/qt/'
@@ -76,7 +75,7 @@ jobs:
      run: |
        wget -O cqtd.deb https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Linux_x86_64.deb
        sudo apt install ./cqtd.deb
-       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -deployVersion 1.6
+       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.1/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -deployVersion 1.6
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
@@ -97,7 +96,7 @@ jobs:
    - name: Install Qt
      uses: jurplel/install-qt-action@v3.2.1
      with:
-      version: 6.5.0
+      version: 6.5.1
       host: mac
       target: desktop
       dir: '${{github.workspace}}/qt/'
@@ -113,7 +112,7 @@ jobs:
        mkdir release
        mv Silaty.app ./release
        cd release
-       ../qt/Qt/6.5.0/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
+       ../qt/Qt/6.5.1/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
