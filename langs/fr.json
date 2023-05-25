@@ -63,8 +63,8 @@
   "sSearch": "Chercher:",
   "aCYL": "Vérifiez votre location sur %s",
   "nGR": "Préparez-vous",
-  "Prayer time for %s": "Temps de prière pour %s",
-  "ITFP": "C'est le temps pour la prière de %s.",
+  "nPTFN": "Temps de prière pour name",
+  "ITFP": "C'est le temps pour la prière de name.",
   "Apply": "Appliquer",
   "Cancel": "Annuler"
 }

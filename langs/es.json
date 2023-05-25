@@ -63,8 +63,8 @@
   "sSearch": "Burcar:",
   "aCYL": "Consulta tu ubicación sobre %s",
   "nGR": "Prepararse",
-  "Prayer time for %s": "Hora de la oracian para %s",
-  "ITFP": "Es la hora de la oracion %s.",
+  "nPTFN": "Hora de la oracian para name",
+  "ITFP": "Es la hora de la oracion name.",
   "Apply": "Aplicar",
   "Cancel": "Cancelar"
 }

@@ -73,6 +73,8 @@ bool aot;
 bool enable_audio_notif;
 int time_before_notification;
 
+int call_reminder = 0;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) , ui(new Ui::MainWindow) {
     ui->setupUi(this);
@@ -124,6 +126,7 @@ MainWindow::MainWindow(QWidget *parent)
         saved_settings.setValue("time_before_notification", 10);
         ui->sTBNs->setValue(saved_settings.value("time_before_notification").toInt());
     }
+    time_before_notification = ui->sTBNs->value();
     fajr_azan = ui->sFAc->currentIndex();
     normal_azan = ui->sNAc->currentIndex();
     Time_Zone = ui->sTZd->value();
@@ -293,7 +296,7 @@ void MainWindow::set_locales() {
         }
     });
     timer1->start();
-    call_prayer("none", "Normal", 3);
+    call_prayer("none", "Normal", 4);
 }
 
 void MainWindow::get_prayer() {
@@ -433,12 +436,21 @@ void MainWindow::get_hours_and_minutes() {
     int NextMinute = QString(prayer_list[NextPrayer]).split(":")[1].toInt();
     betweenHour = NextHour-currentHour;
     betweenMinute = NextMinute-currentMinute;
+    int RemindHour = QString(prayer_list[NextPrayer]).split(":")[0].toInt();
+    int RemindMinute = QString(prayer_list[NextPrayer]).split(":")[1].toInt()-time_before_notification;
     if (betweenMinute < 0) {
         betweenMinute += 60;
         betweenHour -= 1;
     }
     if (betweenHour < 0) {
         betweenHour += 24;
+    }
+    if (RemindMinute < 0) {
+        RemindMinute += 60;
+        RemindHour -= 1;
+    }
+    if (RemindHour < 0) {
+        RemindHour += 24;
     }
     const QString prayer_names[5] = {JsonDoc.object().value("hFajrL").toString(), JsonDoc.object().value("hDhuhrL").toString(), JsonDoc.object().value("hAsrL").toString(), JsonDoc.object().value("hMaghribL").toString(), JsonDoc.object().value("hIshaL").toString()};
     if (betweenHour == 0) {
@@ -451,6 +463,16 @@ void MainWindow::get_hours_and_minutes() {
         this->setWindowTitle(JsonDoc.object().value("trUntilp").toString().replace("hrm", JsonDoc.object().value("trHaM").toString().replace("hrs", QString::number(betweenHour)).replace("mns", QString::number(betweenMinute))).replace("prayer", prayer_names[NextPrayer]));
         time_left_tray->setText(JsonDoc.object().value("trUntilp").toString().replace("hrm", JsonDoc.object().value("trHaM").toString().replace("hrs", QString::number(betweenHour)).replace("mns", QString::number(betweenMinute))).replace("prayer", prayer_names[NextPrayer]));
     }
+    // Reminder
+    if (currentHour == RemindHour && currentMinute == RemindMinute) {
+        if (call_reminder == 0) {
+            call_prayer(prayer_names[NextPrayer], "Normal", 3);
+            call_reminder = 1;
+        }
+    } else {
+        call_reminder = 0;
+    }
+
     fajr_tr->setText(" "+ui->hFajrL->text() + ":- " + ui->hFajrT->text());
     dhuhr_tr->setText(" "+ui->hDhuhrL->text() + ":- " + ui->hDhuhrT->text());
     asr_tr->setText(ui->hAsrL->text() + ":- " + ui->hAsrT->text());
@@ -561,12 +583,18 @@ void MainWindow::get_locations() {
 
 void MainWindow::call_prayer(QString prayer_na, QString prayer_en_name, int send_notif) {
     QString notif = JsonDoc.object().value("ITFP").toString().replace("name", prayer_na);
+    QString until_notif = JsonDoc.object().value("trUntilp").toString().replace("prayer", prayer_na).replace("hrm", QString::number(time_before_notification)+" Minutes");
     QSystemTrayIcon notification = new QSystemTrayIcon();
     notification.setIcon(QIcon(QString(":/icons/silaty_png")));
     if (send_notif == 0) {
         notification.show();
         notification.setVisible(true);
-        notification.showMessage(JsonDoc.object().value("Silaty").toString(), notif, QIcon(QString(":/icons/silaty_png")));
+        notification.showMessage(JsonDoc.object().value("nPTFN").toString().replace("name", prayer_na), notif, QIcon(QString(":/icons/silaty_png")));
+    }
+    if (send_notif == 3) {
+        notification.show();
+        notification.setVisible(true);
+        notification.showMessage(JsonDoc.object().value("nGR").toString(), until_notif, QIcon(QString(":/icons/silaty_png")));
     }
     auto audioOutput = new QAudioOutput(this);
     //auto player = new QMediaPlayer(this);
