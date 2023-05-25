@@ -25,7 +25,7 @@
   - Open it in Qt Creator
   - Build it!
   
-  - **Note: Distributing it would require using [windeployqt](https://doc.qt.io/Qt-5/windows-deployment.html) (for Windows) or [CQtDeployer](https://github.com/QuasarApp/CQtDeployer) (for Linux)**
+  - **Note: Distributing it would require using [windeployqt](https://doc.qt.io/Qt-5/windows-deployment.html) (for Windows) or [CQtDeployer](https://github.com/QuasarApp/CQtDeployer) (for Linux) or [macdeployqt](https://doc.qt.io/qt-6/macos-deployment.html) (for macOS)**
   
 ## Credits
 
