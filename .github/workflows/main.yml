@@ -40,7 +40,7 @@ jobs:
      working-directory: ${{ env.SOURCE_DIR }}
      run: |
        cd release
-       ../qt/Qt/6.5.0/mingw_64/bin/windeployqt.exe Silaty.exe
+       ../qt/Qt/6.5.1/mingw_64/bin/windeployqt.exe Silaty.exe
 
    - uses: sibiraj-s/action-eslint@v1
      with:
@@ -84,7 +84,7 @@ jobs:
      run: |
        wget -O cqtd.deb https://github.com/QuasarApp/CQtDeployer/releases/download/v1.6.2285/CQtDeployer_1.6.2285.1507045_Linux_x86_64.deb
        sudo apt install ./cqtd.deb
-       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.0/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -deployVersion 1.6
+       cqtdeployer -bin Silaty qif -extraPlugin ./qt/Qt/6.5.1/gcc_64/plugins/multimedia -icon ./images/Icons/silaty.png -deployVersion 1.6
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
@@ -121,7 +121,7 @@ jobs:
        mkdir release
        mv Silaty.app ./release
        cd release
-       ../qt/Qt/6.5.0/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
+       ../qt/Qt/6.5.1/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
        
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
