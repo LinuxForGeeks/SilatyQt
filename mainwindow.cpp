@@ -70,6 +70,8 @@ int fajr_azan;
 int normal_azan;
 bool hijri_calendar;
 bool aot;
+bool enable_audio_notif;
+int time_before_notification;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) , ui(new Ui::MainWindow) {
@@ -91,6 +93,13 @@ MainWindow::MainWindow(QWidget *parent)
     hijri_calendar = ui->cHijri->isChecked();
     ui->sAOTc->setChecked(saved_settings.value("always_on_top").toBool());
     aot = ui->sAOTc->isChecked();
+    if (saved_settings.contains("enable_audio_notif")) {
+        ui->sEANc->setChecked(saved_settings.value("enable_audio_notif").toBool());
+    } else {
+        saved_settings.setValue("enable_audio_notif", true);
+        ui->sEANc->setChecked(saved_settings.value("enable_audio_notif").toBool());
+    }
+    enable_audio_notif = ui->sEANc->isChecked();
     if (hijri_calendar == true) {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::IslamicCivil));
     } else {
@@ -109,6 +118,12 @@ MainWindow::MainWindow(QWidget *parent)
         saved_settings.setValue("time_zone", 2.00);
         ui->sTZd->setValue(saved_settings.value("time_zone").toDouble());
     }
+    if (saved_settings.contains("time_before_notification")) {
+        ui->sTBNs->setValue(saved_settings.value("time_before_notification").toInt());
+    } else {
+        saved_settings.setValue("time_before_notification", 10);
+        ui->sTBNs->setValue(saved_settings.value("time_before_notification").toInt());
+    }
     fajr_azan = ui->sFAc->currentIndex();
     normal_azan = ui->sNAc->currentIndex();
     Time_Zone = ui->sTZd->value();
@@ -119,12 +134,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
     get_prayer();
 
-    if (saved_settings.contains("start_minimized")) {
-        ui->sSMc->setChecked(saved_settings.value("start_minimized").toBool());
-    } else {
-        saved_settings.setValue("start_minimized", false);
-        ui->sSMc->setChecked(saved_settings.value("start_minimized").toBool());
-    }
+    ui->sSMc->setChecked(saved_settings.value("start_minimized").toBool());
     if (ui->sSMc->isChecked() == false) {
         showHome();
     }
@@ -148,6 +158,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->cHijri, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sAOTc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sSMc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
+    QObject::connect(ui->sEANc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
+    QObject::connect(ui->sTBNs, SIGNAL(valueChanged(int)), this, SLOT(save_settings_data()));
 }
 
 void MainWindow::save_settings_data() {
@@ -159,6 +171,8 @@ void MainWindow::save_settings_data() {
     madhab_cal = ui->sMadhabc->currentIndex();
     cal_m = ui->sCMc->currentIndex();
     hijri_calendar = ui->cHijri->isChecked();
+    enable_audio_notif = ui->sEANc->isChecked();
+    time_before_notification = ui->sTBNs->value();
     saved_settings.setValue("fajr_azan", ui->sFAc->currentIndex());
     saved_settings.setValue("normal_azan", ui->sNAc->currentIndex());
     saved_settings.setValue("time_zone", ui->sTZd->value());
@@ -168,6 +182,8 @@ void MainWindow::save_settings_data() {
     saved_settings.setValue("hijri_calendar", ui->cHijri->isChecked());
     saved_settings.setValue("always_on_top", ui->sAOTc->isChecked());
     saved_settings.setValue("start_minimized", ui->sSMc->isChecked());
+    saved_settings.setValue("enable_audio_notif", ui->sEANc->isChecked());
+    saved_settings.setValue("time_before_notification", ui->sTBNs->value());
     if (hijri_calendar == true) {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::IslamicCivil));
     } else {
@@ -277,6 +293,7 @@ void MainWindow::set_locales() {
         }
     });
     timer1->start();
+    call_prayer("none", "Normal", 3);
 }
 
 void MainWindow::get_prayer() {
@@ -555,7 +572,17 @@ void MainWindow::call_prayer(QString prayer_na, QString prayer_en_name, int send
     //auto player = new QMediaPlayer(this);
     player->setAudioOutput(audioOutput);
     audioOutput->setVolume(100);
-    if (send_notif != 2) {
+    if (send_notif == 0) {
+        if (enable_audio_notif == true) {
+            if (prayer_en_name == "Fajr") {
+                player->setSource(QUrl("qrc:/audio/Fajr_"+ui->sFAc->currentText().replace(" ", "_")));
+                player->play();
+            } else {
+                player->setSource(QUrl("qrc:/audio/Normal_"+ui->sNAc->currentText().replace(" ", "_")));
+                player->play();
+            }
+        }
+    } else if (send_notif == 1) {
         if (prayer_en_name == "Fajr") {
             player->setSource(QUrl("qrc:/audio/Fajr_"+ui->sFAc->currentText().replace(" ", "_")));
             player->play();

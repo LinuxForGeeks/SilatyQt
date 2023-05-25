@@ -40,7 +40,6 @@ extern QAction *isha_tr;
 extern QAction *time_left_tray;
 extern QAction *location_tr;
 extern QAction *home_tr;
-extern bool show_time_left_icon;
 extern bool enable_audio_notif;
 extern int time_before_notification;
 extern int fajr_azan;
