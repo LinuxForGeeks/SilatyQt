@@ -30,7 +30,7 @@
 ## Credits
 
 ### Qt App
-  - [mustafakhalaf-git](https://github.com/mustafakhalaf-git)
+  - [GitMuslim](https://github.com/GitMuslim)
 
 ### Original GTK App
   - [AXeL-dev](https://github.com/AXeL-dev)
