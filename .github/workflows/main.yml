@@ -1,12 +1,7 @@
-name: Silaty
+name: Build Silaty
 
 on: 
-  workflow_dispatch:
-    inputs:
-      version:
-        description: Build Silaty
-        default: v1.0.0
-        required: true
+  workflow_dispatch
 
 env:
   SOURCE_DIR:  ${{ github.workspace }}
