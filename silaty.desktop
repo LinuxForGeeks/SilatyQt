@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Silaty
+Comment=A neat prayer reminder app made in Qt (written in c++)
+Exec=silaty
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;
+Icon=silaty
+X-AppImage-Name=Silaty
+X-AppImage-Version=1.6.0
+X-AppImage-Arch=x86_64
