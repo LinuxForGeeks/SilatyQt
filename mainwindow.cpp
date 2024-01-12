@@ -12,6 +12,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QBuffer>
+#include <QCompleter>
 #include <QFile>
 #include <QAudioOutput>
 #include <QSystemTrayIcon>
@@ -112,8 +113,12 @@ MainWindow::MainWindow(QWidget *parent)
     }
     ui->sFAc->setCurrentIndex(saved_settings.value("fajr_azan").toInt());
     ui->sNAc->setCurrentIndex(saved_settings.value("normal_azan").toInt());
-    ui->sMadhabc->setCurrentIndex(saved_settings.value("madhab").toInt());
     ui->sCMc->setCurrentIndex(saved_settings.value("calc_method").toInt());
+    ui->sMadhabc->setCurrentIndex(saved_settings.value("madhab").toInt());
+    ui->sCc->setEditable(true);
+    ui->sCc->setInsertPolicy(QComboBox::NoInsert);
+    ui->sCc->completer()->setFilterMode(Qt::MatchContains);
+    ui->sCc->completer()->setCompletionMode(QCompleter::PopupCompletion);
     if (saved_settings.contains("time_zone")) {
         ui->sTZd->setValue(saved_settings.value("time_zone").toDouble());
     } else {
@@ -305,10 +310,23 @@ void MainWindow::get_prayer() {
     longitude = 0.000000;
 
     QString selected_country = "";
-    selected_country = ui->sCc->currentText().split("/")[0];
-
     QString selected_city = "";
-    selected_city = ui->sCc->currentText().split("/")[1];
+    QString selected_location = "";
+    QString selected_state = "";
+    QString selected_state_location = "";
+    QString selected_state_city = "";
+
+    if (ui->sCc->currentText().split("|").size() == 2)
+    {
+        selected_country = ui->sCc->currentText().split("|")[0];
+        selected_city = ui->sCc->currentText().split("|")[1];
+        selected_location = ui->sCc->currentText().split("|")[1];
+    } else if (ui->sCc->currentText().split("|").size() == 3) {
+        selected_country = ui->sCc->currentText().split("|")[0];
+        selected_state = ui->sCc->currentText().split("|")[1];
+        selected_state_location = ui->sCc->currentText().split("|")[2];
+        selected_state_city = ui->sCc->currentText().split("|")[2];
+    }
 
     QFile inFile(":/data/Locations");
     if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -334,17 +352,72 @@ void MainWindow::get_prayer() {
         for (int i2 = 0; i2 < elements2.size(); i2++)
         {
             QDomElement country_name = elements2.at(i2).toElement().firstChildElement("name");
-            QDomNodeList elements3 = elements2.at(i2).toElement().elementsByTagName("city");
-            for (int i3 = 0; i3 < elements3.size(); i3++)
+            if (ui->sCc->currentText().split("|").size() == 2)
             {
-                QDomElement city_name = elements3.at(i3).toElement().firstChildElement("name");
-                if (country_name.text() == selected_country) {
-                    if (city_name.text() == selected_city) {
-                        QDomElement coordinates_val = elements3.at(i3).toElement().firstChildElement("coordinates");
-                        latitude = stod(coordinates_val.text().split(" ")[0].toStdString());
-                        longitude = stod(coordinates_val.text().split(" ")[1].toStdString());
-                        ui->sLatituded->setValue(latitude);
-                        ui->sLongituded->setValue(longitude);
+                QDomNodeList elements3 = elements2.at(i2).toElement().elementsByTagName("city");
+                for (int i3 = 0; i3 < elements3.size(); i3++)
+                {
+                    QDomElement city_name = elements3.at(i3).toElement().firstChildElement("name");
+                    if (country_name.text() == selected_country) {
+                        if (city_name.text() == selected_city) {
+                            QDomElement coordinates_val = elements3.at(i3).toElement().firstChildElement("coordinates");
+                            latitude = stod(coordinates_val.text().split(" ")[0].toStdString());
+                            longitude = stod(coordinates_val.text().split(" ")[1].toStdString());
+                            ui->sLatituded->setValue(latitude);
+                            ui->sLongituded->setValue(longitude);
+                        }
+                    }
+                }
+                QDomNodeList elements4 = elements2.at(i2).toElement().elementsByTagName("location");
+                for (int i4 = 0; i4 < elements4.size(); i4++)
+                {
+                    QDomElement location_name = elements4.at(i4).toElement().firstChildElement("name");
+                    if (country_name.text() == selected_country) {
+                        if (location_name.text() == selected_location) {
+                            QDomElement coordinates_val = elements4.at(i4).toElement().firstChildElement("coordinates");
+                            latitude = stod(coordinates_val.text().split(" ")[0].toStdString());
+                            longitude = stod(coordinates_val.text().split(" ")[1].toStdString());
+                            ui->sLatituded->setValue(latitude);
+                            ui->sLongituded->setValue(longitude);
+                        }
+                    }
+                }
+            } else if (ui->sCc->currentText().split("|").size() == 3) {
+                QDomNodeList elements5 = elements2.at(i2).toElement().elementsByTagName("state");
+                for (int i5 = 0; i5 < elements5.size(); i5++)
+                {
+                    QDomElement state_name = elements5.at(i5).toElement().firstChildElement("name");
+                    QDomNodeList elements6 = elements5.at(i5).toElement().elementsByTagName("location");
+                    for (int i6 = 0; i6 < elements6.size(); i6++)
+                    {
+                        QDomElement state_location_name = elements6.at(i6).toElement().firstChildElement("name");
+                        if (country_name.text() == selected_country) {
+                            if (state_name.text() == selected_state) {
+                                if (state_location_name.text() == selected_state_location) {
+                                    QDomElement coordinates_val = elements6.at(i6).toElement().firstChildElement("coordinates");
+                                    latitude = stod(coordinates_val.text().split(" ")[0].toStdString());
+                                    longitude = stod(coordinates_val.text().split(" ")[1].toStdString());
+                                    ui->sLatituded->setValue(latitude);
+                                    ui->sLongituded->setValue(longitude);
+                                }
+                            }
+                        }
+                    }
+                    QDomNodeList elements7 = elements5.at(i5).toElement().elementsByTagName("city");
+                    for (int i7 = 0; i7 < elements7.size(); i7++)
+                    {
+                        QDomElement state_city_name = elements7.at(i7).toElement().firstChildElement("name");
+                        if (country_name.text() == selected_country) {
+                            if (state_name.text() == selected_state) {
+                                if (state_city_name.text() == selected_state_city) {
+                                    QDomElement coordinates_val = elements7.at(i7).toElement().firstChildElement("coordinates");
+                                    latitude = stod(coordinates_val.text().split(" ")[0].toStdString());
+                                    longitude = stod(coordinates_val.text().split(" ")[1].toStdString());
+                                    ui->sLatituded->setValue(latitude);
+                                    ui->sLongituded->setValue(longitude);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -478,7 +551,11 @@ void MainWindow::get_hours_and_minutes() {
     asr_tr->setText(ui->hAsrL->text() + ":- " + ui->hAsrT->text());
     maghrib_tr->setText(" "+ui->hMaghribL->text() + ":- " + ui->hMaghribT->text());
     isha_tr->setText(ui->hIshaL->text() + ":- " + ui->hIshaT->text());
-    location_tr->setText(JsonDoc.object().value("sLocation").toString()+": "+ ui->sCc->currentText().split("/")[1]);
+    if (ui->sCc->currentText().split("|").size() == 2) {
+        location_tr->setText(JsonDoc.object().value("sLocation").toString()+": "+ ui->sCc->currentText().split("|")[1]);
+    } else if (ui->sCc->currentText().split("|").size() == 3) {
+        location_tr->setText(JsonDoc.object().value("sLocation").toString()+": "+ ui->sCc->currentText().split("|")[2]);
+    }
     home_tr->setText(ui->cDate->text());
     tray->setToolTip(time_left_tray->text());
     // highlight next prayer
@@ -555,24 +632,50 @@ void MainWindow::get_locations() {
         qDebug( "Failed to parse the file into a DOM tree." );
         inFile.close();
     }
-
     inFile.close();
-    QDomElement documentElement = document.documentElement();
-    QDomNodeList elements = documentElement.elementsByTagName("region");
 
-    for (int i = 0; i < elements.size()+1; i++)
+    QDomElement documentElement = document.documentElement();
+    QDomNodeList region_elements = documentElement.elementsByTagName("region");
+    for (int i = 0; i < region_elements.size()+1; i++)
     {
-        if (i < elements.size()) {
-            QDomElement region_name = elements.at(i).toElement().firstChildElement("name");
-            QDomNodeList elements2 = elements.at(i).toElement().elementsByTagName("country");
-            for (int i2 = 0; i2 < elements2.size(); i2++)
+        if (i < region_elements.size()) {
+            QDomElement region_name = region_elements.at(i).toElement().firstChildElement("name");
+            QDomNodeList country_elements = region_elements.at(i).toElement().elementsByTagName("country");
+            for (int i2 = 0; i2 < country_elements.size()+1; i2++)
             {
-                QDomElement country_name = elements2.at(i2).toElement().firstChildElement("name");
-                QDomNodeList elements3 = elements2.at(i2).toElement().elementsByTagName("city");
-                for (int i3 = 0; i3 < elements3.size(); i3++)
+                QDomElement country_name = country_elements.at(i2).toElement().firstChildElement("name");
+                QDomNodeList location_elements = country_elements.at(i2).toElement().elementsByTagName("location");
+                for (int i3 = 0; i3 < location_elements.size(); i3++)
                 {
-                    QDomElement city_name = elements3.at(i3).toElement().firstChildElement("name");
-                    ui->sCc->addItem(country_name.text()+"/"+city_name.text());
+                    QDomElement location_name = location_elements.at(i3).toElement().firstChildElement("name");
+                    if (location_elements.at(i3).parentNode().toElement().tagName() == "country") {
+                        ui->sCc->addItem(country_name.text()+"|"+location_name.text());
+                    }
+                }
+                QDomNodeList city_elements = country_elements.at(i2).toElement().elementsByTagName("city");
+                for (int i4 = 0; i4 < city_elements.size(); i4++)
+                {
+                    QDomElement city_name = city_elements.at(i4).toElement().firstChildElement("name");
+                    if (city_elements.at(i4).parentNode().toElement().tagName() == "country") {
+                        ui->sCc->addItem(country_name.text()+"|"+city_name.text());
+                    }
+                }
+                QDomNodeList state_elements = country_elements.at(i2).toElement().elementsByTagName("state");
+                for (int i5 = 0; i5 < state_elements.size(); i5++)
+                {
+                    QDomElement state_name = state_elements.at(i5).toElement().firstChildElement("name");
+                    QDomNodeList state_location_elements = state_elements.at(i5).toElement().elementsByTagName("location");
+                    for (int i6 = 0; i6 < state_location_elements.size(); i6++)
+                    {
+                        QDomElement state_location_name = state_location_elements.at(i6).toElement().firstChildElement("name");
+                        ui->sCc->addItem(country_name.text()+"|"+state_name.text()+"|"+state_location_name.text());
+                    }
+                    QDomNodeList state_city_elements = state_elements.at(i5).toElement().elementsByTagName("city");
+                    for (int i7 = 0; i7 < state_city_elements.size(); i7++)
+                    {
+                        QDomElement state_city_name = state_city_elements.at(i7).toElement().firstChildElement("name");
+                        ui->sCc->addItem(country_name.text()+"|"+state_name.text()+"|"+state_city_name.text());
+                    }
                 }
             }
         } else {
