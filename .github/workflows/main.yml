@@ -124,18 +124,15 @@ jobs:
      run: |
        export QMAKE=qmake
        export PATH=./qt/Qt/6.5.1/gcc_64/libexec:$PATH
-       ls
        ./linuxdeploy-x86_64.AppImage --appdir AppDir -e Silaty -i ./images/Icons/silaty.png -d ./silaty.desktop --plugin qt --output appimage
        rm linuxdeploy-x86_64.AppImage
        rm linuxdeploy-plugin-qt-x86_64.AppImage
-       ls
-       mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
 
    - name: Release Silaty
      uses: actions/upload-artifact@v2.2.4
      with:
       name: "linux (appimage)"
-      path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+      path: Silaty-x86_64.AppImage
 
 # macos ----------------------------------------------------------------
  silatymacos:
