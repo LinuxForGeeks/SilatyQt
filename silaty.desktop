@@ -2,7 +2,7 @@
 [Desktop Entry]
 Name=Silaty
 Comment=A neat prayer reminder app made in Qt (written in c++)
-Exec=silaty
+Exec=Silaty
 Terminal=false
 Type=Application
 StartupNotify=true
