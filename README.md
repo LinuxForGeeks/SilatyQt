@@ -36,8 +36,9 @@
   - [AXeL-dev](https://github.com/AXeL-dev)
   - [Jessewb786](https://github.com/Jessewb786)
 
- [Prayer Times Calculation using C++](https://www.youtube.com/watch?v=3IrJoov8yfw)
-
+### Prayer Times Calculator
+  - [Prayer Times Calculation using C++](https://www.youtube.com/watch?v=3IrJoov8yfw)
+  - [Source Code (Google Drive)](https://drive.google.com/file/d/10RRocsgs80exYBlEKX3GesD_Px1pv-OI/view)
 ## License
 
 SilatyQt and Silaty are licensed under the [GPL license](LICENSE).
