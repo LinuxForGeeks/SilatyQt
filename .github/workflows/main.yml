@@ -104,7 +104,7 @@ jobs:
       modules: 'qtmultimedia'
       aqtversion: '==3.1.6'
 
-   - name: Install dependencies
+   - name: Install Dependencies
      run: |
        sudo apt-get update
        sudo apt-get install libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev libxcb-image0-dev libxcb-util0-dev libxcb-cursor-dev
@@ -120,14 +120,15 @@ jobs:
        chmod +x linuxdeploy-x86_64.AppImage
        chmod +x linuxdeploy-plugin-qt-x86_64.AppImage
 
-   - name: Create AppImage
+   - name: Package Silaty
      run: |
-       export QML_SOURCES_PATHS="${{env.QML_DIR_NIX}}"
-       export QMAKE=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/bin/${{env.QMAKE}}
-       export PATH=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/libexec:$PATH
-       ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ${{env.UNIXNAME}} -i deploy/linux/${{env.UNIXNAME}}.png -d deploy/linux/${{env.UNIXNAME}}.desktop --plugin qt --output appimage
+       export QMAKE=qmake
+       export PATH=./qt/Qt/6.5.1/gcc_64/libexec:$PATH
+       ls
+       ./linuxdeploy-x86_64.AppImage --appdir AppDir -e silaty -i ./images/Icons/silaty.png -d ./silaty.desktop --plugin qt --output appimage
        rm linuxdeploy-x86_64.AppImage
        rm linuxdeploy-plugin-qt-x86_64.AppImage
+       ls
        mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
 
    - name: Release Silaty
