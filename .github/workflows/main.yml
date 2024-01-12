@@ -125,7 +125,7 @@ jobs:
        export QMAKE=qmake
        export PATH=./qt/Qt/6.5.1/gcc_64/libexec:$PATH
        ls
-       ./linuxdeploy-x86_64.AppImage --appdir AppDir -e silaty -i ./images/Icons/silaty.png -d ./silaty.desktop --plugin qt --output appimage
+       ./linuxdeploy-x86_64.AppImage --appdir AppDir -e Silaty -i ./images/Icons/silaty.png -d ./silaty.desktop --plugin qt --output appimage
        rm linuxdeploy-x86_64.AppImage
        rm linuxdeploy-plugin-qt-x86_64.AppImage
        ls
