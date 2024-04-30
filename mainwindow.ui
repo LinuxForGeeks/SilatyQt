@@ -853,6 +853,12 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
             </item>
             <item row="18" column="2">
              <widget class="QDoubleSpinBox" name="sTZd">
+              <property name="minimum">
+               <double>-12.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>14.000000000000000</double>
+              </property>
               <property name="value">
                <double>2.000000000000000</double>
               </property>
