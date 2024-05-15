@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>429</width>
-    <height>473</height>
+    <width>470</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,18 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="mainLayout">
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <layout class="QHBoxLayout" name="mL">
     <property name="spacing">
@@ -248,7 +257,7 @@
     <item>
      <widget class="QStackedWidget" name="widgets">
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="home">
        <property name="layoutDirection">
@@ -509,6 +518,9 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
         </item>
         <item row="4" column="1">
          <widget class="QCalendarWidget" name="cCalendar">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="firstDayOfWeek">
            <enum>Qt::Sunday</enum>
           </property>
@@ -618,8 +630,8 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>356</width>
-             <height>506</height>
+             <width>445</width>
+             <height>626</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -898,6 +910,9 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
             </item>
             <item row="7" column="2">
              <widget class="QCheckBox" name="sEANc">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -1030,6 +1045,20 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
               </property>
              </widget>
             </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="sDM">
+              <property name="text">
+               <string>   Dark Mode:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QCheckBox" name="sDMc">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </widget>
@@ -1106,12 +1135,15 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
             <item row="2" column="2">
              <widget class="QLabel" name="ArtworkCredits">
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=abobakrsalafi@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mustapha Asbbar&lt;/span&gt;&lt;/a&gt; (Designer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=abobakrsalafi@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Mustapha Asbbar&lt;/span&gt;&lt;/a&gt; (Designer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
              <widget class="QLabel" name="CreatedBy">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
               <property name="text">
                <string>Created by </string>
               </property>
@@ -1123,7 +1155,7 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
             <item row="1" column="2">
              <widget class="QLabel" name="CreateCredits">
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=contact.axel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;AXeL-dev&lt;/span&gt;&lt;/a&gt; (Maintainer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=mustafakhalaf079@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mustafa Khalaf&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=www.jwb@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Jesse Wayde Brandão&lt;/span&gt;&lt;/a&gt; (Lead Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=m.alaa8@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Mohamed Alaa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=CsEslam@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Eslam Mostafa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=xmonader@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Ahmed Youssef&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=contact.axel.dev@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;AXeL-dev&lt;/span&gt;&lt;/a&gt; (Maintainer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=mustafakhalaf079@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Mustafa Khalaf&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=www.jwb@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Jesse Wayde Brandão&lt;/span&gt;&lt;/a&gt; (Lead Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=m.alaa8@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Mohamed Alaa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=CsEslam@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Eslam Mostafa&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:?to=xmonader@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;Ahmed Youssef&lt;/span&gt;&lt;/a&gt; (Developer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="textFormat">
                <enum>Qt::RichText</enum>
@@ -1176,8 +1208,7 @@ border-width: 1px; border-style: solid; border-color: rgba(0, 0, 0, 15%) rgba(0,
            </property>
            <property name="styleSheet">
             <string notr="true">QWidget { background-color: rgba(0,0,0,0) }
-QScrollBar { background-color: none }
-QLabel { color: none }</string>
+QScrollBar { background-color: none }</string>
            </property>
            <attribute name="title">
             <string>License</string>
@@ -1214,8 +1245,8 @@ QLabel { color: none }</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>379</width>
-                 <height>440</height>
+                 <width>470</width>
+                 <height>508</height>
                 </rect>
                </property>
                <property name="sizePolicy">
@@ -1249,7 +1280,7 @@ QLabel { color: none }</string>
                 <item>
                  <widget class="QLabel" name="License">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Silaty, A Prayer Times Reminder Application.&lt;/p&gt;&lt;p&gt;Copyright © 2023 Silaty Team&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is free software: you can redistribute it and/or modify&lt;/p&gt;&lt;p&gt;it under the terms of the GNU General Public License as published by&lt;/p&gt;&lt;p&gt;the Free Software Foundation, either version 3 of the License, or&lt;/p&gt;&lt;p&gt;(at your option) any later version.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is distributed in the hope that it will be useful,&lt;/p&gt;&lt;p&gt;but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/p&gt;&lt;p&gt;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&lt;/p&gt;&lt;p&gt;GNU General Public License for more details.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;You should have received a copy of the GNU General Public License&lt;/p&gt;&lt;p&gt;along with this program. If not, see &amp;lt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&amp;gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Silaty, A Prayer Times Reminder Application.&lt;/p&gt;&lt;p&gt;Copyright © 2024 Silaty Team&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is free software: you can redistribute it and/or modify&lt;/p&gt;&lt;p&gt;it under the terms of the GNU General Public License as published by&lt;/p&gt;&lt;p&gt;the Free Software Foundation, either version 3 of the License, or&lt;/p&gt;&lt;p&gt;(at your option) any later version.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This program is distributed in the hope that it will be useful,&lt;/p&gt;&lt;p&gt;but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/p&gt;&lt;p&gt;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&lt;/p&gt;&lt;p&gt;GNU General Public License for more details.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;You should have received a copy of the GNU General Public License&lt;/p&gt;&lt;p&gt;along with this program. If not, see &amp;lt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55c1ec;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&amp;gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -1310,7 +1341,7 @@ QLabel { color: none }</string>
         <item row="6" column="0">
          <widget class="QLabel" name="aCST">
           <property name="text">
-           <string>Copyright © 2023 Silaty Team</string>
+           <string>Copyright © 2024 Silaty Team</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>

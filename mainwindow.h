@@ -46,6 +46,7 @@ extern int fajr_azan;
 extern int normal_azan;
 extern bool hijri_calendar;
 extern bool aot;
+extern bool dark_mode;
 
 extern QSystemTrayIcon *tray;
 
@@ -100,6 +101,7 @@ public slots:
     void call_prayer(QString, QString, int);
     void play_fajr_audio();
     void play_normal_audio();
+    void set_dark_mode(bool);
 
     void save_settings_data();
 

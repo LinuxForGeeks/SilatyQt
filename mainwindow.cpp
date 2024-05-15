@@ -29,7 +29,7 @@
 using namespace std;
 
 QString sel_locale = "en_US";
-QString version = "1.6";
+QString version = "1.7";
 double latitude;
 double longitude;
 double Time_Zone;
@@ -71,6 +71,8 @@ int fajr_azan;
 int normal_azan;
 bool hijri_calendar;
 bool aot;
+bool dark_mode;
+bool last_dark_mode;
 bool enable_audio_notif;
 int time_before_notification;
 
@@ -96,6 +98,8 @@ MainWindow::MainWindow(QWidget *parent)
     hijri_calendar = ui->cHijri->isChecked();
     ui->sAOTc->setChecked(saved_settings.value("always_on_top").toBool());
     aot = ui->sAOTc->isChecked();
+    ui->sDMc->setChecked(saved_settings.value("dark_mode").toBool());
+    dark_mode = ui->sDMc->isChecked();
     if (saved_settings.contains("enable_audio_notif")) {
         ui->sEANc->setChecked(saved_settings.value("enable_audio_notif").toBool());
     } else {
@@ -111,6 +115,7 @@ MainWindow::MainWindow(QWidget *parent)
     if (aot == true) {
         this->setWindowFlags(Qt::WindowStaysOnTopHint);
     }
+    set_dark_mode(dark_mode);
     ui->sFAc->setCurrentIndex(saved_settings.value("fajr_azan").toInt());
     ui->sNAc->setCurrentIndex(saved_settings.value("normal_azan").toInt());
     ui->sCMc->setCurrentIndex(saved_settings.value("calc_method").toInt());
@@ -165,6 +170,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->sCMc, SIGNAL(currentIndexChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->cHijri, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sAOTc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
+    QObject::connect(ui->sDMc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sSMc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sEANc, SIGNAL(stateChanged(int)), this, SLOT(save_settings_data()));
     QObject::connect(ui->sTBNs, SIGNAL(valueChanged(int)), this, SLOT(save_settings_data()));
@@ -181,6 +187,7 @@ void MainWindow::save_settings_data() {
     hijri_calendar = ui->cHijri->isChecked();
     enable_audio_notif = ui->sEANc->isChecked();
     time_before_notification = ui->sTBNs->value();
+    dark_mode = ui->sDMc->isChecked();
     saved_settings.setValue("fajr_azan", ui->sFAc->currentIndex());
     saved_settings.setValue("normal_azan", ui->sNAc->currentIndex());
     saved_settings.setValue("time_zone", ui->sTZd->value());
@@ -190,6 +197,7 @@ void MainWindow::save_settings_data() {
     saved_settings.setValue("hijri_calendar", ui->cHijri->isChecked());
     saved_settings.setValue("always_on_top", ui->sAOTc->isChecked());
     saved_settings.setValue("start_minimized", ui->sSMc->isChecked());
+    saved_settings.setValue("dark_mode", ui->sDMc->isChecked());
     saved_settings.setValue("enable_audio_notif", ui->sEANc->isChecked());
     saved_settings.setValue("time_before_notification", ui->sTBNs->value());
     if (hijri_calendar == true) {
@@ -198,6 +206,10 @@ void MainWindow::save_settings_data() {
         ui->cCalendar->setCalendar(QCalendar(QCalendar::System::Gregorian));
     }
     get_prayer();
+
+    if (last_dark_mode != dark_mode) {
+        set_dark_mode(dark_mode);
+    }
 }
 
 void MainWindow::set_locales() {
@@ -236,6 +248,9 @@ void MainWindow::set_locales() {
     ui->sNA->setText("   " + JsonDoc.object().value("sNA").toString());
     ui->sJurisprudence->setText(JsonDoc.object().value("sJurisprudence").toString());
     ui->sCM->setText("   " + JsonDoc.object().value("sCM").toString());
+    ui->sAOT->setText("   " + JsonDoc.object().value("sAOT").toString());
+    ui->sAOTc->setText(JsonDoc.object().value("sAOTc").toString());
+    ui->sDM->setText("   " + JsonDoc.object().value("sDM").toString());
     ui->sMadhab->setText("   " + JsonDoc.object().value("sMadhab").toString());
     ui->sLocation->setText(JsonDoc.object().value("sLocation").toString());
     ui->sCity->setText("   " + JsonDoc.object().value("sCity").toString());
@@ -258,7 +273,7 @@ void MainWindow::set_locales() {
     ui->aSilaty->setText(QString(JsonDoc.object().value("Silaty").toString()));
     ui->aVersion->setText(version);
     ui->aDesc->setText(QString(JsonDoc.object().value("aDesc").toString()));
-    ui->aGPP->setText("<a href=\"https://github.com/LinuxForGeeks/SilatyQt\">"+QString(JsonDoc.object().value("aGPP").toString())+"</a>");
+    ui->aGPP->setText("<a href=\"https://github.com/LinuxForGeeks/SilatyQt\"><span style=\"text-decoration: underline; color:#55c1ec;\">"+QString(JsonDoc.object().value("aGPP").toString())+"</span></a>");
     ui->aGPP->setTextFormat(Qt::RichText);
     ui->aGPP->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->aGPP->setOpenExternalLinks(true);
@@ -283,7 +298,6 @@ void MainWindow::set_locales() {
         ui->sTZd->setAlignment(Qt::AlignRight);
         ui->aWc->setLayoutDirection(Qt::LeftToRight);
         ui->aWl->setLayoutDirection(Qt::LeftToRight);
-        ui->sAOT->setAlignment(Qt::AlignRight);
     }
     QTimer* timer1 = new QTimer();
     timer1->setInterval(100);
@@ -746,6 +760,24 @@ void MainWindow::play_normal_audio() {
         ui->sNAt->setText("▶️");
         call_prayer("none", "Normal", 2);
     }
+}
+
+void MainWindow::set_dark_mode(bool darkModeBool) {
+    if (darkModeBool == true) {
+        ui->mainLayout->setStyleSheet("* { background-color: #333333; } QScrollBar { background: none }");
+        setStyleSheet("QLabel, QAbstractButton, QComboBox:on { color: white; } QComboBox, QComboBox QAbstractItemView, QAbstractSpinBox, QToolButton { color: white; border: 1px solid #262626; } QComboBox:hover, QAbstractSpinBox:hover, QToolButton:hover { color: white; border: 1px solid #5C5C5C; } QScrollBar::handle:vertical { border: 1px solid #1C1C1C; background-color: #262626; }");
+        ui->cCalendar->setStyleSheet("*, QAbstractItemView::item { background-color: #262626; color: white; border: 1px solid #1C1C1C; }");
+        ui->aWidget->setStyleSheet("QTabBar::tab:selected { background-color: #262626; color: white; } QTabBar::tab { background-color: #1C1C1C; color: white; } QTabWidget::pane { border: none; } QWidget { background-color: #262626; }");
+        last_dark_mode = true;
+    } else {
+        ui->mainLayout->setStyleSheet("");
+        setStyleSheet("");
+        ui->cCalendar->setStyleSheet("");
+        ui->aWidget->setStyleSheet("");
+        last_dark_mode = false;
+    }
+    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->scrollAreaWidgetContents->setFixedWidth(437);
 }
 
 MainWindow::~MainWindow()
