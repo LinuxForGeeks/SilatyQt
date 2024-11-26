@@ -14,7 +14,7 @@ jobs:
   runs-on: windows-latest
   steps:
    - name: Check Git repository
-     uses: actions/checkout@v3
+     uses: actions/checkout@v4
      with:
       submodules: recursive
 
@@ -54,7 +54,7 @@ jobs:
   runs-on: ubuntu-22.04
   steps:
    - name: Check Git repository
-     uses: actions/checkout@v3
+     uses: actions/checkout@v4
      with:
       submodules: recursive
 
@@ -90,7 +90,7 @@ jobs:
   runs-on: ubuntu-20.04
   steps:
    - name: Check Git repository
-     uses: actions/checkout@v3
+     uses: actions/checkout@v4
      with:
       submodules: recursive
 
@@ -140,7 +140,7 @@ jobs:
   runs-on: macos-latest
   steps:
    - name: Check Git repository
-     uses: actions/checkout@v3
+     uses: actions/checkout@v4
      with:
       submodules: recursive
 
