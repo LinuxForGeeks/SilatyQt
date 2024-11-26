@@ -163,7 +163,7 @@ jobs:
        mkdir release
        mv Silaty.app ./release
        cd release
-       ../qt/Qt/6.8/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
+       ../qt/Qt/6.8.0/macos/bin/macdeployqt ./Silaty.app -dmg -verbose=1
        
    - name: Release Silaty
      uses: actions/upload-artifact@v3
